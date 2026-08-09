@@ -2,10 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Our Little Universe ❤️</title>
+<title>For My King, Santi ❤️</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,10 +15,14 @@
 
 <style>
 
+/* =========================================================
+   BASIC
+========================================================= */
+
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -25,91 +30,119 @@ html {
 }
 
 body {
-    font-family: "Cormorant Garamond", serif;
     background: #fff5f8;
     color: #633b4b;
+    font-family: "Cormorant Garamond", serif;
     overflow-x: hidden;
 }
 
-/* =====================================================
+button,
+input {
+    font-family: inherit;
+}
+
+
+/* =========================================================
    LOCK SCREEN
-===================================================== */
+========================================================= */
 
 #lockScreen {
     position: fixed;
     inset: 0;
+
     z-index: 9999;
 
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
     background:
-        radial-gradient(circle at 50% 40%, #fff8fb 0%, #ffdce8 40%, #e9a1bb 100%);
+        radial-gradient(
+            circle at 50% 40%,
+            #fffafd 0%,
+            #ffe3ed 42%,
+            #e99ab7 100%
+        );
 
-    transition: opacity 1s ease, visibility 1s ease;
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
 }
 
 #lockScreen.unlocked {
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
 }
 
 .lock-container {
     text-align: center;
-    padding: 30px;
+    padding: 25px;
+
     animation: lockAppear 1.5s ease;
 }
 
+
+/* LOCK */
+
 .lock {
-    width: 95px;
-    height: 110px;
-    margin: 0 auto 25px;
+    width: 105px;
+    height: 120px;
+
+    margin: auto;
+
     position: relative;
-}
-
-.lock-body {
-    position: absolute;
-    bottom: 0;
-    left: 10px;
-
-    width: 75px;
-    height: 65px;
-
-    border-radius: 15px;
-
-    background: linear-gradient(135deg, #c76a8e, #9d4267);
-
-    box-shadow:
-        0 15px 30px rgba(120,40,75,.3);
 }
 
 .lock-shackle {
     position: absolute;
 
-    width: 50px;
-    height: 55px;
+    width: 58px;
+    height: 62px;
 
-    border: 10px solid #9d4267;
+    left: 23px;
+    top: 0;
+
+    border: 10px solid #963e64;
     border-bottom: 0;
 
-    border-radius: 30px 30px 0 0;
+    border-radius: 35px 35px 0 0;
+}
 
-    top: 0;
-    left: 22px;
+.lock-body {
+    position: absolute;
+
+    width: 82px;
+    height: 68px;
+
+    left: 11px;
+    bottom: 0;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ce6d92,
+            #963e64
+        );
+
+    box-shadow:
+        0 15px 35px rgba(120,40,75,.3);
 }
 
 .keyhole {
     position: absolute;
 
-    width: 13px;
-    height: 22px;
+    width: 15px;
+    height: 15px;
 
-    background: #fff0f5;
+    top: 17px;
+    left: 33px;
+
     border-radius: 50%;
 
-    left: 31px;
-    top: 18px;
+    background: #ffeaf1;
 }
 
 .keyhole::after {
@@ -118,52 +151,73 @@ body {
     position: absolute;
 
     width: 8px;
-    height: 15px;
+    height: 18px;
 
-    background: #fff0f5;
-
-    left: 2px;
     top: 10px;
+    left: 4px;
+
+    background: #ffeaf1;
 }
+
+
+/* LOCK TEXT */
 
 .lock-title {
     font-family: "Great Vibes", cursive;
-    font-size: 60px;
+
+    font-size: 65px;
+
     color: #963e64;
-    margin-bottom: 5px;
+
+    margin-top: 20px;
 }
 
 .lock-subtitle {
     font-family: "Montserrat", sans-serif;
-    font-size: 12px;
-    letter-spacing: 3px;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
     text-transform: uppercase;
-    margin-bottom: 30px;
-    opacity: .7;
+
+    opacity: .65;
+
+    margin: 5px 0 30px;
 }
 
-.code-input {
-    width: 220px;
-    padding: 14px;
 
-    border: 1px solid #dda1b7;
-    border-radius: 30px;
+/* CODE */
+
+.code-input {
+    width: 230px;
+
+    padding: 15px;
+
+    border:
+        1px solid #d99ab1;
+
+    border-radius: 40px;
+
+    outline: none;
 
     text-align: center;
 
     font-family: "Montserrat", sans-serif;
+
     font-size: 20px;
+
     letter-spacing: 7px;
 
-    outline: none;
-
-    background: rgba(255,255,255,.75);
-
     color: #71394f;
+
+    background:
+        rgba(255,255,255,.85);
 }
 
 .code-input:focus {
-    box-shadow: 0 0 20px rgba(190,80,120,.2);
+    box-shadow:
+        0 0 25px rgba(190,80,120,.2);
 }
 
 .unlock-button {
@@ -171,17 +225,22 @@ body {
 
     margin: 15px auto;
 
-    padding: 13px 35px;
+    padding: 14px 32px;
 
     border: none;
+
     border-radius: 30px;
 
-    background: linear-gradient(135deg, #a74369, #df779e);
+    background:
+        linear-gradient(
+            135deg,
+            #a74369,
+            #df789f
+        );
 
     color: white;
 
     font-family: "Montserrat", sans-serif;
-    font-size: 14px;
 
     cursor: pointer;
 
@@ -190,97 +249,120 @@ body {
 
 .unlock-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(150,50,90,.25);
+
+    box-shadow:
+        0 12px 28px rgba(150,50,90,.3);
 }
 
-.error {
-    height: 20px;
-    color: #b22e5c;
+#error {
+    min-height: 20px;
+
     font-family: "Montserrat", sans-serif;
+
     font-size: 12px;
+
+    color: #a92f5a;
 }
 
-/* =====================================================
+
+/* =========================================================
    HERO
-===================================================== */
+========================================================= */
 
 .hero {
     min-height: 100vh;
 
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
+
     align-items: center;
 
     text-align: center;
 
+    padding: 30px 20px;
+
     position: relative;
 
     background:
-        radial-gradient(circle at center,
-        #fffafd 0%,
-        #ffe5ed 40%,
-        #f5b3c9 100%);
+        radial-gradient(
+            circle at center,
+            #fffafd 0%,
+            #ffe4ed 40%,
+            #f1aec6 100%
+        );
+
+    overflow: hidden;
 }
 
-.small-title {
+.hero-small {
     font-family: "Montserrat", sans-serif;
-    font-size: 12px;
+
+    font-size: 11px;
 
     letter-spacing: 5px;
+
     text-transform: uppercase;
 
-    opacity: .7;
+    opacity: .65;
 }
 
 .hero h1 {
     font-family: "Great Vibes", cursive;
 
-    font-size: clamp(65px, 12vw, 120px);
+    font-size:
+        clamp(70px, 13vw, 130px);
 
     color: #963e64;
 
-    animation: floating 4s ease-in-out infinite;
+    text-shadow:
+        0 8px 25px rgba(150,62,100,.15);
+
+    animation:
+        floating 4s ease-in-out infinite;
 }
 
 .hero p {
     font-size: 22px;
+
     margin-top: -5px;
 }
 
-/* =====================================================
+
+/* =========================================================
    FLOWER CIRCLE
-===================================================== */
+========================================================= */
 
 .flower-circle {
-    width: 400px;
-    height: 400px;
+    width: 410px;
+    height: 410px;
 
     max-width: 90vw;
     max-height: 90vw;
 
     position: relative;
 
-    margin: 20px 0;
+    margin: 5px 0 20px;
 }
 
 .flower {
     position: absolute;
 
-    top: 50%;
-    left: 50%;
-
     width: 65px;
     height: 65px;
 
+    top: 50%;
+    left: 50%;
+
     transform:
-        translate(-50%, -50%)
+        translate(-50%,-50%)
         rotate(var(--angle))
         translateY(-155px);
 
     animation:
-        orbit 20s linear infinite;
+        orbit 22s linear infinite;
 }
 
 .flower-inner {
@@ -288,7 +370,7 @@ body {
     height: 100%;
 
     animation:
-        reverseSpin 20s linear infinite;
+        reverseOrbit 22s linear infinite;
 }
 
 .petal {
@@ -300,19 +382,43 @@ body {
     top: 2px;
     left: 18px;
 
-    border-radius: 50% 50% 45% 45%;
+    border-radius:
+        50% 50% 45% 45%;
 
     background:
-        linear-gradient(135deg,#fff,#f69fbd);
+        linear-gradient(
+            135deg,
+            #fff,
+            #f39bbb
+        );
 
-    transform-origin: 50% 100%;
+    transform-origin:
+        50% 100%;
+
+    box-shadow:
+        0 0 12px
+        rgba(255,160,190,.35);
 }
 
-.petal:nth-child(1) { transform: rotate(0); }
-.petal:nth-child(2) { transform: rotate(72deg); }
-.petal:nth-child(3) { transform: rotate(144deg); }
-.petal:nth-child(4) { transform: rotate(216deg); }
-.petal:nth-child(5) { transform: rotate(288deg); }
+.petal:nth-child(1) {
+    transform: rotate(0deg);
+}
+
+.petal:nth-child(2) {
+    transform: rotate(72deg);
+}
+
+.petal:nth-child(3) {
+    transform: rotate(144deg);
+}
+
+.petal:nth-child(4) {
+    transform: rotate(216deg);
+}
+
+.petal:nth-child(5) {
+    transform: rotate(288deg);
+}
 
 .flower-center {
     position: absolute;
@@ -320,14 +426,15 @@ body {
     width: 20px;
     height: 20px;
 
-    border-radius: 50%;
-
     top: 23px;
     left: 23px;
 
+    border-radius: 50%;
+
     background: #f2bd63;
 
-    box-shadow: 0 0 15px #ffd98a;
+    box-shadow:
+        0 0 18px #ffd98a;
 }
 
 .center-heart {
@@ -336,79 +443,39 @@ body {
     top: 50%;
     left: 50%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%,-50%);
 
-    font-size: 65px;
+    font-size: 68px;
 
-    animation: heartbeat 1.8s infinite;
+    filter:
+        drop-shadow(
+            0 8px 15px
+            rgba(180,50,90,.2)
+        );
+
+    animation:
+        heartbeat 1.8s infinite;
 }
 
-@keyframes orbit {
 
-    from {
-        transform:
-            translate(-50%, -50%)
-            rotate(var(--angle))
-            translateY(-155px);
-    }
-
-    to {
-        transform:
-            translate(-50%, -50%)
-            rotate(calc(var(--angle) + 360deg))
-            translateY(-155px);
-    }
-
-}
-
-@keyframes reverseSpin {
-
-    from { transform: rotate(0); }
-    to { transform: rotate(-360deg); }
-
-}
-
-@keyframes heartbeat {
-
-    0%,100% {
-        transform: translate(-50%,-50%) scale(1);
-    }
-
-    50% {
-        transform: translate(-50%,-50%) scale(1.18);
-    }
-
-}
-
-@keyframes floating {
-
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-
-}
-
-/* =====================================================
+/* =========================================================
    GENERAL SECTIONS
-===================================================== */
+========================================================= */
 
-section.content {
+section {
     padding: 100px 20px;
-    max-width: 1100px;
-    margin: auto;
 }
 
 .section-label {
     text-align: center;
 
     font-family: "Montserrat", sans-serif;
+
     font-size: 11px;
 
     letter-spacing: 4px;
+
     text-transform: uppercase;
 
     opacity: .6;
@@ -419,193 +486,319 @@ section.content {
 
     font-family: "Great Vibes", cursive;
 
-    font-size: 65px;
+    font-size: 68px;
 
     color: #963e64;
 
     margin-bottom: 45px;
 }
 
-/* =====================================================
+
+/* =========================================================
    OUR STORY
-===================================================== */
+========================================================= */
 
 .story {
+    max-width: 720px;
+
+    margin: auto;
+
     text-align: center;
+
     font-size: 22px;
 
-    line-height: 1.8;
-
-    max-width: 700px;
-    margin: auto;
+    line-height: 1.85;
 }
 
-.date {
+.story-date {
     font-family: "Montserrat", sans-serif;
 
     font-size: 12px;
 
     letter-spacing: 3px;
 
-    color: #b04d72;
+    color: #a8466c;
 
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-/* =====================================================
-   MEMORIES SLIDER
-===================================================== */
+.story-heart {
+    font-size: 35px;
 
-.memory-section {
-    background: #fff;
+    margin: 20px 0;
 }
+
+
+/* =========================================================
+   PHOTOBOOTH MEMORIES
+========================================================= */
+
+.memories {
+    background:
+        linear-gradient(
+            180deg,
+            #fff,
+            #fff5f8
+        );
+}
+
+.photobooth-intro {
+    max-width: 650px;
+
+    margin:
+        -25px auto 40px;
+
+    text-align: center;
+
+    font-size: 20px;
+}
+
+
+/* SLIDER */
 
 .slider {
     position: relative;
 
-    max-width: 850px;
+    max-width: 900px;
 
     margin: auto;
 
     overflow: hidden;
 
-    border-radius: 20px;
+    border-radius: 25px;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe9f0,
+            #fff
+        );
 
     box-shadow:
-        0 20px 60px rgba(100,40,60,.15);
+        0 25px 70px
+        rgba(100,40,60,.15);
 }
 
 .slides {
     display: flex;
 
     transition:
-        transform .8s cubic-bezier(.77,0,.18,1);
+        transform .8s
+        cubic-bezier(.77,0,.18,1);
 }
 
 .slide {
     min-width: 100%;
 
-    position: relative;
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 10px 40px;
 }
 
-.slide img {
+
+/* PHOTOBOOTH STRIP */
+
+.photo-strip {
+    width: min(350px, 85vw);
+
+    padding: 14px 14px 25px;
+
+    background: white;
+
+    box-shadow:
+        0 15px 35px
+        rgba(60,20,40,.2);
+
+    position: relative;
+
+    transform:
+        rotate(-2deg);
+
+    transition: .4s;
+}
+
+.slide:nth-child(even) .photo-strip {
+    transform:
+        rotate(2deg);
+}
+
+.photo-strip:hover {
+    transform:
+        rotate(0deg)
+        scale(1.02);
+}
+
+
+/* FOUR PHOTOS INSIDE STRIP */
+
+.photo-strip img {
     display: block;
 
     width: 100%;
 
-    height: 520px;
+    height: 145px;
 
     object-fit: cover;
 
-    background: #f7dce6;
+    margin-bottom: 10px;
+
+    background: #f5dbe4;
 }
 
-.caption {
-    position: absolute;
-
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    padding: 35px 25px 25px;
-
-    color: white;
-
-    background:
-        linear-gradient(transparent, rgba(40,10,25,.8));
+.photo-strip img:last-of-type {
+    margin-bottom: 15px;
 }
 
-.caption h3 {
-    font-family: "Great Vibes", cursive;
-    font-size: 38px;
+
+/* STRIP TEXT */
+
+.strip-text {
+    text-align: center;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 27px;
+
+    color: #963e64;
 }
 
-.caption p {
-    font-size: 18px;
+.strip-date {
+    text-align: center;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #9b6477;
+
+    margin-top: 4px;
 }
+
+
+/* SLIDER BUTTONS */
 
 .slider-button {
     position: absolute;
 
     top: 50%;
 
-    transform: translateY(-50%);
+    transform:
+        translateY(-50%);
 
-    width: 45px;
-    height: 45px;
+    width: 48px;
+    height: 48px;
 
     border: none;
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,.8);
+    background:
+        rgba(255,255,255,.9);
 
     color: #963e64;
 
-    font-size: 25px;
+    font-size: 28px;
 
     cursor: pointer;
 
     z-index: 5;
+
+    box-shadow:
+        0 5px 20px
+        rgba(100,30,60,.12);
+
+    transition: .3s;
+}
+
+.slider-button:hover {
+    transform:
+        translateY(-50%)
+        scale(1.1);
 }
 
 .prev {
-    left: 15px;
+    left: 20px;
 }
 
 .next {
-    right: 15px;
+    right: 20px;
 }
+
+
+/* DOTS */
 
 .dots {
     display: flex;
+
     justify-content: center;
 
-    gap: 8px;
+    gap: 10px;
 
     margin-top: 20px;
 }
 
 .dot {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
 
     border-radius: 50%;
 
-    background: #dca4b8;
+    background: #dba5b9;
 
     cursor: pointer;
+
+    transition: .3s;
 }
 
 .dot.active {
     background: #963e64;
-    transform: scale(1.4);
+
+    transform: scale(1.5);
 }
 
-/* =====================================================
+
+/* =========================================================
    LOVE LETTER
-===================================================== */
+========================================================= */
 
 .letter-section {
     background:
-        linear-gradient(135deg,#fff5f8,#fbd8e5);
+        linear-gradient(
+            135deg,
+            #fff5f8,
+            #fbd8e5
+        );
 }
 
 .letter {
-    max-width: 750px;
+    max-width: 760px;
 
     margin: auto;
 
-    padding: 55px;
-
-    background: rgba(255,255,255,.8);
-
-    border: 1px solid rgba(180,80,110,.15);
-
-    box-shadow:
-        0 20px 50px rgba(100,30,60,.1);
+    padding: 60px;
 
     position: relative;
+
+    background:
+        rgba(255,255,255,.85);
+
+    box-shadow:
+        0 25px 65px
+        rgba(100,30,60,.12);
+
+    border-radius: 5px;
 }
 
 .letter::before {
@@ -615,17 +808,19 @@ section.content {
 
     inset: 15px;
 
-    border: 1px solid rgba(170,70,100,.2);
+    border:
+        1px solid
+        rgba(170,70,100,.2);
 
     pointer-events: none;
 }
 
-.letter h2 {
+.letter h3 {
     text-align: center;
 
     font-family: "Great Vibes", cursive;
 
-    font-size: 60px;
+    font-size: 62px;
 
     color: #963e64;
 
@@ -635,60 +830,97 @@ section.content {
 .letter p {
     font-size: 20px;
 
-    line-height: 1.8;
+    line-height: 1.9;
 
     margin-bottom: 18px;
 }
 
-.signature {
-    font-family: "Great Vibes", cursive;
+.letter-opening {
+    font-family:
+        "Great Vibes",
+        cursive;
 
-    font-size: 40px !important;
+    font-size: 34px !important;
+
+    color: #963e64;
+}
+
+.signature {
+    text-align: right;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 44px !important;
 
     color: #963e64;
 
-    text-align: right;
+    margin-top: 30px;
 }
 
-/* =====================================================
+
+/* =========================================================
    PLAYLIST
-===================================================== */
+========================================================= */
 
 .playlist {
     text-align: center;
 
     background:
-        radial-gradient(circle at center,#fff,#ffe7ef);
+        radial-gradient(
+            circle,
+            #fff,
+            #ffe5ee
+        );
 }
 
-.playlist-text {
+.playlist-intro {
+    max-width: 650px;
+
+    margin:
+        -20px auto 30px;
+
     font-size: 21px;
 
-    margin-bottom: 30px;
+    line-height: 1.7;
 }
 
-.spotify-box {
+.spotify {
     max-width: 700px;
 
     margin: auto;
 }
 
-.spotify-box iframe {
+.spotify iframe {
     width: 100%;
 
     height: 352px;
 
-    border-radius: 12px;
-
     border: none;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(50,20,35,.15);
 }
 
-/* =====================================================
+.playlist-note {
+    margin-top: 20px;
+
+    font-size: 16px;
+
+    opacity: .7;
+}
+
+
+/* =========================================================
    FINAL SURPRISE
-===================================================== */
+========================================================= */
 
 .final {
-    min-height: 90vh;
+    min-height: 100vh;
 
     display: flex;
 
@@ -700,88 +932,260 @@ section.content {
 
     text-align: center;
 
-    padding: 40px;
+    padding:
+        80px 25px;
 
     background:
-        radial-gradient(circle,#ffeef4,#e9a2ba);
+        radial-gradient(
+            circle at center,
+            #fff0f5,
+            #e9a2ba
+        );
+
+    position: relative;
+
+    overflow: hidden;
 }
 
 .final-heart {
-    font-size: 70px;
+    font-size: 75px;
 
-    animation: heartbeat 1.5s infinite;
+    animation:
+        heartbeatFinal 1.5s infinite;
 }
 
 .final h2 {
-    font-family: "Great Vibes", cursive;
+    font-family:
+        "Great Vibes",
+        cursive;
 
-    font-size: clamp(60px,10vw,100px);
+    font-size:
+        clamp(70px,11vw,125px);
 
     color: #963e64;
+
+    margin: 10px 0;
 }
 
-.final p {
-    max-width: 650px;
+.infinity {
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
-    font-size: 22px;
+    font-size: 75px;
 
-    line-height: 1.7;
+    color: #963e64;
+
+    margin: 5px 0 20px;
+
+    animation:
+        infinityGlow 3s ease-in-out infinite;
+}
+
+.final-message {
+    max-width: 720px;
+
+    font-size: 24px;
+
+    line-height: 1.8;
+}
+
+.final-signature {
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 46px;
+
+    color: #963e64;
+
+    margin-top: 30px;
 }
 
 .final-date {
-    margin-top: 25px;
+    margin-top: 30px;
 
-    font-family: "Montserrat", sans-serif;
+    font-family:
+        "Montserrat",
+        sans-serif;
 
-    font-size: 12px;
+    font-size: 10px;
 
     letter-spacing: 4px;
+
+    opacity: .6;
 }
 
-/* =====================================================
+
+/* =========================================================
    FLOATING HEARTS
-===================================================== */
+========================================================= */
 
 .heart {
     position: fixed;
 
-    bottom: -30px;
+    bottom: -40px;
 
     pointer-events: none;
 
-    z-index: 50;
+    z-index: 100;
 
-    animation: rise linear forwards;
+    animation:
+        rise linear forwards;
+}
 
-    opacity: .7;
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes lockAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(30px)
+            scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+@keyframes orbit {
+
+    from {
+        transform:
+            translate(-50%,-50%)
+            rotate(var(--angle))
+            translateY(-155px);
+    }
+
+    to {
+        transform:
+            translate(-50%,-50%)
+            rotate(
+                calc(var(--angle) + 360deg)
+            )
+            translateY(-155px);
+    }
+
+}
+
+@keyframes reverseOrbit {
+
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+
+}
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-50%,-50%)
+            scale(1.18);
+    }
+
+}
+
+@keyframes heartbeatFinal {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+}
+
+@keyframes floating {
+
+    0%,100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-10px);
+    }
+
+}
+
+@keyframes infinityGlow {
+
+    0%,100% {
+        opacity: .65;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+
 }
 
 @keyframes rise {
 
     from {
-        transform: translateY(0);
+        transform:
+            translateY(0)
+            rotate(0deg);
+
         opacity: 0;
     }
 
     10% {
-        opacity: .7;
+        opacity: .8;
     }
 
     to {
-        transform: translateY(-110vh) rotate(30deg);
+        transform:
+            translateY(-110vh)
+            rotate(30deg);
+
         opacity: 0;
     }
 
 }
 
-/* =====================================================
-   MOBILE
-===================================================== */
 
-@media(max-width:600px) {
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width: 600px) {
+
+    .lock-title {
+        font-size: 55px;
+    }
 
     .hero h1 {
-        font-size: 70px;
+        font-size: 72px;
+    }
+
+    .hero p {
+        font-size: 19px;
     }
 
     .flower-circle {
@@ -791,7 +1195,7 @@ section.content {
 
     .flower {
         transform:
-            translate(-50%, -50%)
+            translate(-50%,-50%)
             rotate(var(--angle))
             translateY(-120px);
     }
@@ -800,38 +1204,100 @@ section.content {
 
         from {
             transform:
-                translate(-50%, -50%)
+                translate(-50%,-50%)
                 rotate(var(--angle))
                 translateY(-120px);
         }
 
         to {
             transform:
-                translate(-50%, -50%)
-                rotate(calc(var(--angle) + 360deg))
+                translate(-50%,-50%)
+                rotate(
+                    calc(var(--angle) + 360deg)
+                )
                 translateY(-120px);
         }
 
     }
 
-    .letter {
-        padding: 40px 25px;
+    .section-title {
+        font-size: 53px;
     }
 
-    .letter h2 {
-        font-size: 48px;
+    section {
+        padding: 80px 15px;
+    }
+
+    .story {
+        font-size: 19px;
+    }
+
+    .slider {
+        padding: 10px;
+    }
+
+    .slide {
+        padding: 20px 35px;
+    }
+
+    .photo-strip {
+        width: min(280px, 78vw);
+        padding: 10px 10px 18px;
+    }
+
+    .photo-strip img {
+        height: 105px;
+        margin-bottom: 7px;
+    }
+
+    .strip-text {
+        font-size: 23px;
+    }
+
+    .slider-button {
+        width: 40px;
+        height: 40px;
+        font-size: 23px;
+    }
+
+    .prev {
+        left: 8px;
+    }
+
+    .next {
+        right: 8px;
+    }
+
+    .letter {
+        padding: 45px 25px;
+    }
+
+    .letter h3 {
+        font-size: 50px;
     }
 
     .letter p {
         font-size: 18px;
     }
 
-    .slide img {
-        height: 400px;
+    .signature {
+        font-size: 38px !important;
     }
 
-    .section-title {
-        font-size: 52px;
+    .playlist-intro {
+        font-size: 19px;
+    }
+
+    .spotify iframe {
+        height: 352px;
+    }
+
+    .final-message {
+        font-size: 20px;
+    }
+
+    .final-signature {
+        font-size: 40px;
     }
 
 }
@@ -839,11 +1305,13 @@ section.content {
 </style>
 </head>
 
+
 <body>
 
-<!-- =====================================================
-     SECRET LOCK
-===================================================== -->
+
+<!-- =========================================================
+     SECRET PADLOCK
+========================================================= -->
 
 <div id="lockScreen">
 
@@ -854,26 +1322,34 @@ section.content {
             <div class="lock-shackle"></div>
 
             <div class="lock-body">
+
                 <div class="keyhole"></div>
+
             </div>
 
         </div>
 
+
         <h1 class="lock-title">
-            Our Little Secret
+            For Santi
         </h1>
 
+
         <div class="lock-subtitle">
-            Only my King can enter
+            A little secret from your Queen
         </div>
 
+
         <input
-            type="password"
             id="code"
             class="code-input"
+            type="password"
+            inputmode="numeric"
             maxlength="6"
             placeholder="••••••"
+            aria-label="Secret code"
         >
+
 
         <button
             class="unlock-button"
@@ -883,30 +1359,35 @@ section.content {
 
         </button>
 
-        <div id="error" class="error"></div>
+
+        <div id="error"></div>
 
     </div>
 
 </div>
 
 
-<!-- =====================================================
+
+<!-- =========================================================
      HERO
-===================================================== -->
+========================================================= -->
 
 <header class="hero">
 
-    <div class="small-title">
-        A little piece of my heart
+    <div class="hero-small">
+        A little universe made for you
     </div>
 
+
     <h1>
-        For My King
+        My King, Santi
     </h1>
 
+
     <p>
-        A little world made just for us ❤️
+        From your Queen, Devi ❤️
     </p>
+
 
     <div class="flower-circle">
 
@@ -921,6 +1402,7 @@ section.content {
             </div>
         </div>
 
+
         <div class="flower" style="--angle:45deg">
             <div class="flower-inner">
                 <div class="petal"></div>
@@ -931,6 +1413,7 @@ section.content {
                 <div class="flower-center"></div>
             </div>
         </div>
+
 
         <div class="flower" style="--angle:90deg">
             <div class="flower-inner">
@@ -943,6 +1426,7 @@ section.content {
             </div>
         </div>
 
+
         <div class="flower" style="--angle:135deg">
             <div class="flower-inner">
                 <div class="petal"></div>
@@ -953,6 +1437,7 @@ section.content {
                 <div class="flower-center"></div>
             </div>
         </div>
+
 
         <div class="flower" style="--angle:180deg">
             <div class="flower-inner">
@@ -965,6 +1450,7 @@ section.content {
             </div>
         </div>
 
+
         <div class="flower" style="--angle:225deg">
             <div class="flower-inner">
                 <div class="petal"></div>
@@ -975,6 +1461,7 @@ section.content {
                 <div class="flower-center"></div>
             </div>
         </div>
+
 
         <div class="flower" style="--angle:270deg">
             <div class="flower-inner">
@@ -987,6 +1474,7 @@ section.content {
             </div>
         </div>
 
+
         <div class="flower" style="--angle:315deg">
             <div class="flower-inner">
                 <div class="petal"></div>
@@ -998,6 +1486,7 @@ section.content {
             </div>
         </div>
 
+
         <div class="center-heart">
             ❤️
         </div>
@@ -1007,42 +1496,61 @@ section.content {
 </header>
 
 
-<!-- =====================================================
-     OUR STORY
-===================================================== -->
 
-<section class="content">
+<!-- =========================================================
+     OUR STORY
+========================================================= -->
+
+<section>
 
     <div class="section-label">
-        Where our story began
+        The beginning of us
     </div>
+
 
     <h2 class="section-title">
         Our Story
     </h2>
 
+
     <div class="story">
 
-        <div class="date">
-            NOVEMBER 30, 2025
+        <div class="story-date">
+            NOVEMBER 30 · 2025
         </div>
+
 
         <p>
             The day our little story began.
         </p>
 
-        <br>
+
+        <div class="story-heart">
+            ❤️
+        </div>
+
 
         <p>
-            Two people, two countries, thousands of kilometers
-            between us — and somehow, we found each other.
+            Somewhere between two countries and thousands
+            of kilometers, two hearts found each other.
         </p>
 
+
         <br>
 
+
         <p>
-            Since then, you've become one of the most beautiful
-            parts of my life.
+            And somehow, you became my King
+            and I became your Queen.
+        </p>
+
+
+        <br>
+
+
+        <p>
+            This is only the beginning
+            of our story.
         </p>
 
     </div>
@@ -1050,104 +1558,146 @@ section.content {
 </section>
 
 
-<!-- =====================================================
-     FAVORITE MEMORIES
-===================================================== -->
 
-<section class="content memory-section">
+<!-- =========================================================
+     FAVORITE PHOTOBOOTH MEMORIES
+========================================================= -->
+
+<section class="memories">
 
     <div class="section-label">
         Little pieces of us
     </div>
 
+
     <h2 class="section-title">
-        Favorite Moments
+        Our Little Photobooth
     </h2>
+
+
+    <p class="photobooth-intro">
+        Four little pictures,
+        a thousand little feelings. ❤️
+    </p>
+
 
     <div class="slider">
 
         <div class="slides" id="slides">
 
-            <!-- CHANGE THESE IMAGE LINKS -->
+
+            <!-- =========================================
+                 PHOTOBOOTH STRIP 1
+            ========================================== -->
 
             <div class="slide">
 
-                <img
-                    src="https://placehold.co/1000x650/ffdce8/963e64?text=Our+First+Memory"
-                    alt="Our first memory">
+                <div class="photo-strip">
 
-                <div class="caption">
+                    <img
+                        src="memories/photo1.jpg"
+                        alt="Our photobooth memory 1">
 
-                    <h3>
-                        Our Beginning
-                    </h3>
+                    <img
+                        src="memories/photo2.jpg"
+                        alt="Our photobooth memory 2">
 
-                    <p>
-                        The moment our story started.
-                    </p>
+                    <img
+                        src="memories/photo3.jpg"
+                        alt="Our photobooth memory 3">
+
+                    <img
+                        src="memories/photo4.jpg"
+                        alt="Our photobooth memory 4">
+
+
+                    <div class="strip-text">
+                        Our Little Moments ❤️
+                    </div>
+
+                    <div class="strip-date">
+                        SANTI ♡ DEVI
+                    </div>
 
                 </div>
 
             </div>
 
 
+            <!-- =========================================
+                 PHOTOBOOTH STRIP 2
+            ========================================== -->
+
             <div class="slide">
 
-                <img
-                    src="https://placehold.co/1000x650/f8c9d9/963e64?text=Favorite+Moment"
-                    alt="Favorite moment">
+                <div
+                    class="photo-strip"
+                    style="transform:rotate(2deg);">
 
-                <div class="caption">
+                    <img
+                        src="memories/photo4.jpg"
+                        alt="Our photobooth memory">
 
-                    <h3>
-                        My Favorite Smile
-                    </h3>
+                    <img
+                        src="memories/photo3.jpg"
+                        alt="Our photobooth memory">
 
-                    <p>
-                        One of those moments I wish I could keep forever.
-                    </p>
+                    <img
+                        src="memories/photo2.jpg"
+                        alt="Our photobooth memory">
+
+                    <img
+                        src="memories/photo1.jpg"
+                        alt="Our photobooth memory">
+
+
+                    <div class="strip-text">
+                        Just Us 🥹
+                    </div>
+
+                    <div class="strip-date">
+                        OUR FAVORITE MEMORIES
+                    </div>
 
                 </div>
 
             </div>
 
 
-            <div class="slide">
-
-                <img
-                    src="https://placehold.co/1000x650/f5b6cc/963e64?text=Our+Memory"
-                    alt="Our memory">
-
-                <div class="caption">
-
-                    <h3>
-                        Just Us
-                    </h3>
-
-                    <p>
-                        Distance can't take these memories away.
-                    </p>
-
-                </div>
-
-            </div>
-
+            <!-- =========================================
+                 PHOTOBOOTH STRIP 3
+            ========================================== -->
 
             <div class="slide">
 
-                <img
-                    src="https://placehold.co/1000x650/efacc5/963e64?text=Forever+Memory"
-                    alt="Forever memory">
+                <div
+                    class="photo-strip"
+                    style="transform:rotate(-1deg);">
 
-                <div class="caption">
+                    <img
+                        src="memories/photo2.jpg"
+                        alt="Our photobooth memory">
 
-                    <h3>
-                        One More Memory
-                    </h3>
+                    <img
+                        src="memories/photo1.jpg"
+                        alt="Our photobooth memory">
 
-                    <p>
-                        And hopefully, many more to come.
-                    </p>
+                    <img
+                        src="memories/photo4.jpg"
+                        alt="Our photobooth memory">
+
+                    <img
+                        src="memories/photo3.jpg"
+                        alt="Our photobooth memory">
+
+
+                    <div class="strip-text">
+                        My Favorite Person ❤️
+                    </div>
+
+                    <div class="strip-date">
+                        MORE MEMORIES TO COME
+                    </div>
 
                 </div>
 
@@ -1158,7 +1708,8 @@ section.content {
 
         <button
             class="slider-button prev"
-            onclick="previousSlide()">
+            onclick="previousSlide()"
+            aria-label="Previous memory">
 
             ‹
 
@@ -1167,7 +1718,8 @@ section.content {
 
         <button
             class="slider-button next"
-            onclick="nextSlide()">
+            onclick="nextSlide()"
+            aria-label="Next memory">
 
             ›
 
@@ -1176,87 +1728,110 @@ section.content {
     </div>
 
 
-    <div class="dots" id="dots"></div>
+    <div
+        class="dots"
+        id="dots">
+    </div>
 
 </section>
 
 
-<!-- =====================================================
-     LOVE LETTER
-===================================================== -->
 
-<section class="content letter-section">
+<!-- =========================================================
+     LOVE LETTER
+========================================================= -->
+
+<section class="letter-section">
 
     <div class="section-label">
-        From my heart
+        From my heart to yours
     </div>
 
+
     <h2 class="section-title">
-        My Love Letter
+        A Letter For You
     </h2>
+
 
     <div class="letter">
 
-        <h2>
+        <h3>
             To My King ❤️
-        </h2>
+        </h3>
 
-        <p>
-            My Love,
+
+        <p class="letter-opening">
+            My Santi,
         </p>
 
-        <p>
-            Sometimes I still can't believe that in this huge world,
-            somehow our paths found each other.
-        </p>
 
         <p>
-            Since November 30, 2025, you have become such a beautiful
-            part of my life.
+            I don't know if words will ever be enough
+            to explain how much you mean to me,
+            but I want to try.
         </p>
 
-        <p>
-            You are thousands of kilometers away from me, but somehow
-            you have managed to become one of the closest people to my heart.
-        </p>
 
         <p>
-            I love all the little things that make you who you are.
-            Your love for dinosaurs, your cat Snowy, games, cooking,
-            and all the little things that make you smile.
+            I will be the one to love you in infinity and beyond,
+            to give you a home that makes you feel safe and loved,
+            and to be your loving wife.
         </p>
 
-        <p>
-            I love being your Queen, and I love calling you my King.
-        </p>
 
         <p>
-            I don't know exactly what every chapter of our story will
-            look like, but I know that I want to keep writing it with you.
+            I want to be the person you can come home to,
+            the person you can laugh with,
+            dream with, and grow with.
         </p>
 
-        <p>
-            I want more conversations, more laughter, more memories,
-            more adventures, and someday, fewer kilometers between us.
-        </p>
 
         <p>
-            Until that day comes, I hope you always remember that
-            there is someone here in the Philippines who loves you
-            and is cheering for you from afar.
+            Even when the distance feels big,
+            I hope you remember that my heart
+            has never been measured in kilometers.
         </p>
 
-        <p>
-            Thank you for being you.
-        </p>
 
         <p>
-            I love you, my King.
+            You are my King,
+            and I am so grateful that I get
+            to be your Queen.
         </p>
+
+
+        <p>
+            I want to make more memories with you.
+            More silly moments.
+            More late-night conversations.
+            More adventures.
+            More birthdays.
+            More ordinary days that somehow
+            become our favorite memories.
+        </p>
+
+
+        <p>
+            And one day, I hope the distance between
+            Argentina and the Philippines is nothing more
+            than a chapter we look back on together.
+        </p>
+
+
+        <p>
+            Until then, I will keep choosing you.
+        </p>
+
+
+        <p>
+            I love you to infinity and beyond.
+            ♾️❤️
+        </p>
+
 
         <p class="signature">
             Forever your Queen,<br>
-            Devine ❤️
+            Devi ❤️
         </p>
 
     </div>
@@ -1264,53 +1839,57 @@ section.content {
 </section>
 
 
-<!-- =====================================================
-     PLAYLIST
-===================================================== -->
 
-<section class="content playlist">
+<!-- =========================================================
+     OUR PLAYLIST
+========================================================= -->
+
+<section class="playlist">
 
     <div class="section-label">
-        Songs that remind me of us
+        Songs that sound like us
     </div>
+
 
     <h2 class="section-title">
         Our Playlist 🎵
     </h2>
 
-    <p class="playlist-text">
-        Put on your headphones and listen to the songs
-        that feel like our little love story.
+
+    <p class="playlist-intro">
+        Press play and let these songs tell
+        a little piece of our story.
     </p>
 
 
-    <!--
-        REPLACE THE URL BELOW WITH YOUR SPOTIFY PLAYLIST.
-
-        Example:
-
-        https://open.spotify.com/playlist/XXXXXXXXXXXX
-
-        You can get the embed link from Spotify:
-        Share → Embed playlist
-    -->
-
-    <div class="spotify-box">
+    <div class="spotify">
 
         <iframe
-            src="https://open.spotify.com/embed/playlist/REPLACE_WITH_YOUR_PLAYLIST_ID"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            src="https://open.spotify.com/embed/playlist/7uC8cUciOSVzQQUgNgzA2G"
+            allow="
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                fullscreen;
+                picture-in-picture
+            "
             loading="lazy">
         </iframe>
 
     </div>
 
+
+    <p class="playlist-note">
+        🎧 For my King, from your Queen.
+    </p>
+
 </section>
 
 
-<!-- =====================================================
+
+<!-- =========================================================
      FINAL SURPRISE
-===================================================== -->
+========================================================= -->
 
 <section class="final">
 
@@ -1318,21 +1897,57 @@ section.content {
         ❤️
     </div>
 
+
     <h2>
         I Choose You
     </h2>
 
-    <p>
-        In every distance.
-        In every timezone.
-        In every conversation.
-        In every chapter.
+
+    <div class="infinity">
+        ∞
+    </div>
+
+
+    <p class="final-message">
+
+        Santi, I will love you
+        in infinity and beyond.
 
         <br><br>
 
-        If I had to choose again,
-        I would still choose you.
+        I will love you through the distance,
+        through every difficult day,
+        through every beautiful moment,
+        and through every chapter
+        still waiting for us.
+
+        <br><br>
+
+        I want to give you a home
+        where you feel safe,
+        loved,
+        understood,
+        and never alone.
+
+        <br><br>
+
+        And someday...
+
+        <br><br>
+
+        I want that home to be us.
+
     </p>
+
+
+    <div class="final-signature">
+
+        Your loving Queen,<br>
+
+        Devi ❤️
+
+    </div>
+
 
     <div class="final-date">
         30 · 11 · 2025
@@ -1341,13 +1956,20 @@ section.content {
 </section>
 
 
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
 <script>
 
-/* =====================================================
-   PASSWORD
-===================================================== */
+
+/* =========================================================
+   SECRET CODE
+========================================================= */
 
 const secretCode = "113025";
+
 
 function unlock() {
 
@@ -1357,20 +1979,28 @@ function unlock() {
     const error =
         document.getElementById("error");
 
-    if(input === secretCode) {
+
+    if (input === secretCode) {
 
         document
             .getElementById("lockScreen")
             .classList.add("unlocked");
 
+
         error.innerHTML = "";
 
-        // Celebrate with hearts
-        for(let i = 0; i < 25; i++) {
+
+        /* Celebration */
+
+        for (
+            let i = 0;
+            i < 35;
+            i++
+        ) {
 
             setTimeout(
                 createHeart,
-                i * 100
+                i * 70
             );
 
         }
@@ -1378,103 +2008,150 @@ function unlock() {
     } else {
 
         error.innerHTML =
-            "That's not the secret, my King ❤️";
+            "Try again, my King ❤️";
 
     }
 
 }
 
 
-/* Enter key unlock */
+/* ENTER KEY */
 
 document
     .getElementById("code")
-    .addEventListener("keydown", function(event) {
+    .addEventListener(
+        "keydown",
+        function(event) {
 
-        if(event.key === "Enter") {
-            unlock();
+            if (
+                event.key === "Enter"
+            ) {
+
+                unlock();
+
+            }
+
         }
+    );
 
-    });
 
 
-/* =====================================================
+/* =========================================================
    MEMORY SLIDER
-===================================================== */
+========================================================= */
 
 let currentSlide = 0;
+
 
 const slides =
     document.getElementById("slides");
 
+
 const totalSlides =
     document.querySelectorAll(".slide").length;
 
-const dotsContainer =
+
+const dots =
     document.getElementById("dots");
 
 
-/* Create dots */
 
-for(let i = 0; i < totalSlides; i++) {
+/* CREATE DOTS */
+
+for (
+    let i = 0;
+    i < totalSlides;
+    i++
+) {
 
     const dot =
         document.createElement("div");
 
+
     dot.className = "dot";
 
-    dot.onclick = function() {
 
-        currentSlide = i;
+    dot.addEventListener(
+        "click",
+        function() {
 
-        updateSlider();
+            currentSlide = i;
 
-    };
+            updateSlider();
 
-    dotsContainer.appendChild(dot);
+        }
+    );
+
+
+    dots.appendChild(dot);
 
 }
 
+
+
+/* UPDATE SLIDER */
 
 function updateSlider() {
 
     slides.style.transform =
         `translateX(-${currentSlide * 100}%)`;
 
+
     document
         .querySelectorAll(".dot")
-        .forEach((dot,index) => {
+        .forEach(
+            (dot, index) => {
 
-            dot.classList.toggle(
-                "active",
-                index === currentSlide
-            );
+                dot.classList.toggle(
+                    "active",
+                    index === currentSlide
+                );
 
-        });
+            }
+        );
 
 }
 
+
+
+/* NEXT */
 
 function nextSlide() {
 
     currentSlide++;
 
-    if(currentSlide >= totalSlides) {
+
+    if (
+        currentSlide >= totalSlides
+    ) {
+
         currentSlide = 0;
+
     }
+
 
     updateSlider();
 
 }
 
 
+
+/* PREVIOUS */
+
 function previousSlide() {
 
     currentSlide--;
 
-    if(currentSlide < 0) {
-        currentSlide = totalSlides - 1;
+
+    if (
+        currentSlide < 0
+    ) {
+
+        currentSlide =
+            totalSlides - 1;
+
     }
+
 
     updateSlider();
 
@@ -1484,16 +2161,22 @@ function previousSlide() {
 updateSlider();
 
 
-/* Automatic memory slideshow */
 
-setInterval(nextSlide, 5000);
+/* AUTO SLIDE */
+
+setInterval(
+    nextSlide,
+    5500
+);
 
 
-/* =====================================================
-   TOUCH SWIPE
-===================================================== */
+
+/* =========================================================
+   PHONE SWIPE
+========================================================= */
 
 let touchStartX = 0;
+
 
 slides.addEventListener(
     "touchstart",
@@ -1502,7 +2185,8 @@ slides.addEventListener(
         touchStartX =
             event.touches[0].clientX;
 
-    }
+    },
+    { passive: true }
 );
 
 
@@ -1513,54 +2197,90 @@ slides.addEventListener(
         const touchEndX =
             event.changedTouches[0].clientX;
 
-        const difference =
+
+        const distance =
             touchStartX - touchEndX;
 
-        if(Math.abs(difference) > 50) {
 
-            if(difference > 0) {
+        if (
+            Math.abs(distance) > 50
+        ) {
+
+            if (
+                distance > 0
+            ) {
+
                 nextSlide();
+
             } else {
+
                 previousSlide();
+
             }
 
         }
 
-    }
+    },
+    { passive: true }
 );
 
 
-/* =====================================================
+
+/* =========================================================
    FLOATING HEARTS
-===================================================== */
+========================================================= */
 
 function createHeart() {
 
     const heart =
         document.createElement("div");
 
+
     heart.className = "heart";
 
-    const hearts =
-        ["❤️","💕","💗","💖","💓","💞"];
+
+    const symbols = [
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💓",
+        "💞",
+        "💘"
+    ];
+
 
     heart.innerHTML =
-        hearts[
+        symbols[
             Math.floor(
-                Math.random() * hearts.length
+                Math.random() *
+                symbols.length
             )
         ];
+
 
     heart.style.left =
         Math.random() * 100 + "vw";
 
+
     heart.style.fontSize =
-        (12 + Math.random() * 22) + "px";
+        (
+            12 +
+            Math.random() * 22
+        ) + "px";
+
 
     heart.style.animationDuration =
-        (5 + Math.random() * 6) + "s";
+        (
+            5 +
+            Math.random() * 6
+        ) + "s";
 
-    document.body.appendChild(heart);
+
+    document.body.appendChild(
+        heart
+    );
+
 
     setTimeout(
         () => heart.remove(),
@@ -1570,7 +2290,30 @@ function createHeart() {
 }
 
 
-setInterval(createHeart, 1000);
+setInterval(
+    createHeart,
+    1000
+);
+
+
+
+/* =========================================================
+   INITIAL HEARTS
+========================================================= */
+
+for (
+    let i = 0;
+    i < 8;
+    i++
+) {
+
+    setTimeout(
+        createHeart,
+        i * 500
+    );
+
+}
+
 
 </script>
 
