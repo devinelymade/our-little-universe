@@ -1,17 +1,25 @@
 ```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>For My King, Santi ❤️</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet">
 
 
 <style>
@@ -33,7 +41,11 @@ html {
 body {
     background: #fff5f8;
     color: #633b4b;
-    font-family: "Cormorant Garamond", serif;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
     overflow-x: hidden;
 }
 
@@ -48,13 +60,17 @@ input {
 ========================================================= */
 
 #lockScreen {
+
     position: fixed;
+
     inset: 0;
 
     z-index: 9999;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     background:
@@ -71,22 +87,31 @@ input {
 }
 
 #lockScreen.unlocked {
+
     opacity: 0;
+
     visibility: hidden;
+
     pointer-events: none;
 }
 
 .lock-container {
+
     text-align: center;
+
     padding: 25px;
 
-    animation: lockAppear 1.5s ease;
+    animation:
+        lockAppear 1.5s ease;
 }
 
 
-/* LOCK */
+/* =========================================================
+   LOCK
+========================================================= */
 
 .lock {
+
     width: 105px;
     height: 120px;
 
@@ -96,6 +121,7 @@ input {
 }
 
 .lock-shackle {
+
     position: absolute;
 
     width: 58px;
@@ -104,13 +130,17 @@ input {
     left: 23px;
     top: 0;
 
-    border: 10px solid #963e64;
+    border:
+        10px solid #963e64;
+
     border-bottom: 0;
 
-    border-radius: 35px 35px 0 0;
+    border-radius:
+        35px 35px 0 0;
 }
 
 .lock-body {
+
     position: absolute;
 
     width: 82px;
@@ -129,10 +159,12 @@ input {
         );
 
     box-shadow:
-        0 15px 35px rgba(120,40,75,.3);
+        0 15px 35px
+        rgba(120,40,75,.3);
 }
 
 .keyhole {
+
     position: absolute;
 
     width: 15px;
@@ -147,6 +179,7 @@ input {
 }
 
 .keyhole::after {
+
     content: "";
 
     position: absolute;
@@ -161,10 +194,15 @@ input {
 }
 
 
-/* LOCK TITLE */
+/* =========================================================
+   LOCK TEXT
+========================================================= */
 
 .lock-title {
-    font-family: "Great Vibes", cursive;
+
+    font-family:
+        "Great Vibes",
+        cursive;
 
     font-size: 65px;
 
@@ -174,7 +212,10 @@ input {
 }
 
 .lock-subtitle {
-    font-family: "Montserrat", sans-serif;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
 
     font-size: 11px;
 
@@ -184,13 +225,17 @@ input {
 
     opacity: .65;
 
-    margin: 5px 0 30px;
+    margin:
+        5px 0 30px;
 }
 
 
-/* CODE INPUT */
+/* =========================================================
+   CODE
+========================================================= */
 
 .code-input {
+
     width: 230px;
 
     padding: 15px;
@@ -204,7 +249,9 @@ input {
 
     text-align: center;
 
-    font-family: "Montserrat", sans-serif;
+    font-family:
+        "Montserrat",
+        sans-serif;
 
     font-size: 20px;
 
@@ -217,12 +264,15 @@ input {
 }
 
 .code-input:focus {
+
     box-shadow:
-        0 0 25px rgba(190,80,120,.2);
+        0 0 25px
+        rgba(190,80,120,.2);
 }
 
 
 .unlock-button {
+
     display: block;
 
     margin: 15px auto;
@@ -242,7 +292,9 @@ input {
 
     color: white;
 
-    font-family: "Montserrat", sans-serif;
+    font-family:
+        "Montserrat",
+        sans-serif;
 
     cursor: pointer;
 
@@ -250,16 +302,22 @@ input {
 }
 
 .unlock-button:hover {
-    transform: translateY(-3px);
+
+    transform:
+        translateY(-3px);
 
     box-shadow:
-        0 12px 28px rgba(150,50,90,.3);
+        0 12px 28px
+        rgba(150,50,90,.3);
 }
 
 #error {
+
     min-height: 20px;
 
-    font-family: "Montserrat", sans-serif;
+    font-family:
+        "Montserrat",
+        sans-serif;
 
     font-size: 12px;
 
@@ -272,6 +330,7 @@ input {
 ========================================================= */
 
 .hero {
+
     min-height: 100vh;
 
     display: flex;
@@ -300,7 +359,10 @@ input {
 }
 
 .hero-small {
-    font-family: "Montserrat", sans-serif;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
 
     font-size: 11px;
 
@@ -312,7 +374,10 @@ input {
 }
 
 .hero h1 {
-    font-family: "Great Vibes", cursive;
+
+    font-family:
+        "Great Vibes",
+        cursive;
 
     font-size:
         clamp(70px, 13vw, 130px);
@@ -320,13 +385,15 @@ input {
     color: #963e64;
 
     text-shadow:
-        0 8px 25px rgba(150,62,100,.15);
+        0 8px 25px
+        rgba(150,62,100,.15);
 
     animation:
         floating 4s ease-in-out infinite;
 }
 
 .hero p {
+
     font-size: 22px;
 
     margin-top: -5px;
@@ -338,6 +405,7 @@ input {
 ========================================================= */
 
 .flower-circle {
+
     width: 410px;
     height: 410px;
 
@@ -346,10 +414,12 @@ input {
 
     position: relative;
 
-    margin: 5px 0 20px;
+    margin:
+        5px 0 20px;
 }
 
 .flower {
+
     position: absolute;
 
     width: 65px;
@@ -368,6 +438,7 @@ input {
 }
 
 .flower-inner {
+
     width: 100%;
     height: 100%;
 
@@ -376,6 +447,7 @@ input {
 }
 
 .petal {
+
     position: absolute;
 
     width: 28px;
@@ -423,6 +495,7 @@ input {
 }
 
 .flower-center {
+
     position: absolute;
 
     width: 20px;
@@ -440,6 +513,7 @@ input {
 }
 
 .center-heart {
+
     position: absolute;
 
     top: 50%;
@@ -462,17 +536,21 @@ input {
 
 
 /* =========================================================
-   GENERAL SECTIONS
+   SECTIONS
 ========================================================= */
 
 section {
+
     padding: 100px 20px;
 }
 
 .section-label {
+
     text-align: center;
 
-    font-family: "Montserrat", sans-serif;
+    font-family:
+        "Montserrat",
+        sans-serif;
 
     font-size: 11px;
 
@@ -484,9 +562,12 @@ section {
 }
 
 .section-title {
+
     text-align: center;
 
-    font-family: "Great Vibes", cursive;
+    font-family:
+        "Great Vibes",
+        cursive;
 
     font-size: 68px;
 
@@ -497,10 +578,11 @@ section {
 
 
 /* =========================================================
-   OUR STORY
+   STORY
 ========================================================= */
 
 .story {
+
     max-width: 720px;
 
     margin: auto;
@@ -513,7 +595,10 @@ section {
 }
 
 .story-date {
-    font-family: "Montserrat", sans-serif;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
 
     font-size: 12px;
 
@@ -525,6 +610,7 @@ section {
 }
 
 .story-heart {
+
     font-size: 35px;
 
     margin: 20px 0;
@@ -536,6 +622,7 @@ section {
 ========================================================= */
 
 .memories {
+
     background:
         linear-gradient(
             180deg,
@@ -545,6 +632,7 @@ section {
 }
 
 .memory-intro {
+
     max-width: 650px;
 
     margin:
@@ -556,9 +644,12 @@ section {
 }
 
 
-/* SLIDER */
+/* =========================================================
+   SLIDER
+========================================================= */
 
 .slider {
+
     position: relative;
 
     max-width: 900px;
@@ -584,6 +675,7 @@ section {
 }
 
 .slides {
+
     display: flex;
 
     transition:
@@ -592,6 +684,7 @@ section {
 }
 
 .slide {
+
     min-width: 100%;
 
     display: flex;
@@ -600,14 +693,19 @@ section {
 
     align-items: center;
 
-    padding: 10px 40px;
+    padding:
+        10px 40px;
 }
 
 
-/* SINGLE PHOTO */
+/* =========================================================
+   SINGLE PHOTO
+========================================================= */
 
 .single-photo {
-    width: min(650px, 85vw);
+
+    width:
+        min(650px, 85vw);
 
     padding:
         15px 15px 25px;
@@ -627,16 +725,20 @@ section {
 
 .slide:nth-child(even)
 .single-photo {
-    transform: rotate(1.5deg);
+
+    transform:
+        rotate(1.5deg);
 }
 
 .single-photo:hover {
+
     transform:
         rotate(0deg)
         scale(1.015);
 }
 
 .single-photo img {
+
     display: block;
 
     width: 100%;
@@ -649,6 +751,7 @@ section {
 }
 
 .memory-caption {
+
     text-align: center;
 
     font-family:
@@ -663,9 +766,12 @@ section {
 }
 
 
-/* SLIDER BUTTONS */
+/* =========================================================
+   SLIDER BUTTONS
+========================================================= */
 
 .slider-button {
+
     position: absolute;
 
     top: 50%;
@@ -699,6 +805,7 @@ section {
 }
 
 .slider-button:hover {
+
     transform:
         translateY(-50%)
         scale(1.1);
@@ -713,9 +820,12 @@ section {
 }
 
 
-/* DOTS */
+/* =========================================================
+   DOTS
+========================================================= */
 
 .dots {
+
     display: flex;
 
     justify-content: center;
@@ -726,6 +836,7 @@ section {
 }
 
 .dot {
+
     width: 9px;
     height: 9px;
 
@@ -739,6 +850,7 @@ section {
 }
 
 .dot.active {
+
     background: #963e64;
 
     transform: scale(1.5);
@@ -750,6 +862,7 @@ section {
 ========================================================= */
 
 .letter-section {
+
     background:
         linear-gradient(
             135deg,
@@ -759,6 +872,7 @@ section {
 }
 
 .letter {
+
     max-width: 760px;
 
     margin: auto;
@@ -778,6 +892,7 @@ section {
 }
 
 .letter::before {
+
     content: "";
 
     position: absolute;
@@ -792,9 +907,12 @@ section {
 }
 
 .letter h3 {
+
     text-align: center;
 
-    font-family: "Great Vibes", cursive;
+    font-family:
+        "Great Vibes",
+        cursive;
 
     font-size: 62px;
 
@@ -804,6 +922,7 @@ section {
 }
 
 .letter p {
+
     font-size: 20px;
 
     line-height: 1.9;
@@ -812,23 +931,27 @@ section {
 }
 
 .letter-opening {
+
     font-family:
         "Great Vibes",
         cursive;
 
-    font-size: 34px !important;
+    font-size:
+        34px !important;
 
     color: #963e64;
 }
 
 .signature {
+
     text-align: right;
 
     font-family:
         "Great Vibes",
         cursive;
 
-    font-size: 44px !important;
+    font-size:
+        44px !important;
 
     color: #963e64;
 
@@ -837,10 +960,11 @@ section {
 
 
 /* =========================================================
-   SPOTIFY
+   PLAYLIST
 ========================================================= */
 
 .playlist {
+
     text-align: center;
 
     background:
@@ -852,6 +976,7 @@ section {
 }
 
 .playlist-intro {
+
     max-width: 650px;
 
     margin:
@@ -863,12 +988,14 @@ section {
 }
 
 .spotify {
+
     max-width: 700px;
 
     margin: auto;
 }
 
 .spotify iframe {
+
     width: 100%;
 
     height: 352px;
@@ -883,6 +1010,7 @@ section {
 }
 
 .playlist-note {
+
     margin-top: 20px;
 
     font-size: 16px;
@@ -896,6 +1024,7 @@ section {
 ========================================================= */
 
 .final {
+
     min-height: 100vh;
 
     display: flex;
@@ -924,6 +1053,7 @@ section {
 }
 
 .final-heart {
+
     font-size: 75px;
 
     animation:
@@ -931,6 +1061,7 @@ section {
 }
 
 .final h2 {
+
     font-family:
         "Great Vibes",
         cursive;
@@ -944,6 +1075,7 @@ section {
 }
 
 .infinity {
+
     font-family:
         "Cormorant Garamond",
         serif;
@@ -952,13 +1084,16 @@ section {
 
     color: #963e64;
 
-    margin: 5px 0 20px;
+    margin:
+        5px 0 20px;
 
     animation:
-        infinityGlow 3s ease-in-out infinite;
+        infinityGlow 3s
+        ease-in-out infinite;
 }
 
 .final-message {
+
     max-width: 720px;
 
     font-size: 24px;
@@ -967,6 +1102,7 @@ section {
 }
 
 .final-signature {
+
     font-family:
         "Great Vibes",
         cursive;
@@ -979,6 +1115,7 @@ section {
 }
 
 .final-date {
+
     margin-top: 30px;
 
     font-family:
@@ -994,10 +1131,53 @@ section {
 
 
 /* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+.music-control {
+
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 52px;
+    height: 52px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(150,62,100,.9);
+
+    color: white;
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    z-index: 500;
+
+    box-shadow:
+        0 8px 25px
+        rgba(80,20,50,.25);
+
+    transition: .3s;
+}
+
+.music-control:hover {
+
+    transform: scale(1.1);
+}
+
+
+/* =========================================================
    FLOATING HEARTS
 ========================================================= */
 
 .heart {
+
     position: fixed;
 
     bottom: -40px;
@@ -1018,24 +1198,29 @@ section {
 @keyframes lockAppear {
 
     from {
+
         opacity: 0;
+
         transform:
             translateY(30px)
             scale(.95);
     }
 
     to {
+
         opacity: 1;
+
         transform:
             translateY(0)
             scale(1);
     }
-
 }
+
 
 @keyframes orbit {
 
     from {
+
         transform:
             translate(-50%,-50%)
             rotate(var(--angle))
@@ -1043,87 +1228,109 @@ section {
     }
 
     to {
+
         transform:
             translate(-50%,-50%)
             rotate(
-                calc(var(--angle) + 360deg)
+                calc(
+                    var(--angle) + 360deg
+                )
             )
             translateY(-155px);
     }
-
 }
+
 
 @keyframes reverseOrbit {
 
     from {
-        transform: rotate(0);
+
+        transform:
+            rotate(0);
     }
 
     to {
-        transform: rotate(-360deg);
-    }
 
+        transform:
+            rotate(-360deg);
+    }
 }
+
 
 @keyframes heartbeat {
 
     0%,100% {
+
         transform:
             translate(-50%,-50%)
             scale(1);
     }
 
     50% {
+
         transform:
             translate(-50%,-50%)
             scale(1.18);
     }
-
 }
+
 
 @keyframes heartbeatFinal {
 
     0%,100% {
-        transform: scale(1);
+
+        transform:
+            scale(1);
     }
 
     50% {
-        transform: scale(1.2);
-    }
 
+        transform:
+            scale(1.2);
+    }
 }
+
 
 @keyframes floating {
 
     0%,100% {
+
         transform:
             translateY(0);
     }
 
     50% {
+
         transform:
             translateY(-10px);
     }
-
 }
+
 
 @keyframes infinityGlow {
 
     0%,100% {
+
         opacity: .65;
-        transform: scale(1);
+
+        transform:
+            scale(1);
     }
 
     50% {
-        opacity: 1;
-        transform: scale(1.08);
-    }
 
+        opacity: 1;
+
+        transform:
+            scale(1.08);
+    }
 }
+
 
 @keyframes rise {
 
     from {
+
         transform:
             translateY(0)
             rotate(0deg);
@@ -1132,17 +1339,18 @@ section {
     }
 
     10% {
+
         opacity: .8;
     }
 
     to {
+
         transform:
             translateY(-110vh)
             rotate(30deg);
 
         opacity: 0;
     }
-
 }
 
 
@@ -1150,7 +1358,7 @@ section {
    MOBILE
 ========================================================= */
 
-@media(max-width: 600px) {
+@media(max-width:600px) {
 
     .lock-title {
         font-size: 55px;
@@ -1165,35 +1373,17 @@ section {
     }
 
     .flower-circle {
+
         width: 330px;
         height: 330px;
     }
 
     .flower {
+
         transform:
             translate(-50%,-50%)
             rotate(var(--angle))
             translateY(-120px);
-    }
-
-    @keyframes orbit {
-
-        from {
-            transform:
-                translate(-50%,-50%)
-                rotate(var(--angle))
-                translateY(-120px);
-        }
-
-        to {
-            transform:
-                translate(-50%,-50%)
-                rotate(
-                    calc(var(--angle) + 360deg)
-                )
-                translateY(-120px);
-        }
-
     }
 
     .section-title {
@@ -1213,10 +1403,12 @@ section {
     }
 
     .slide {
-        padding: 20px 35px;
+        padding:
+            20px 35px;
     }
 
     .single-photo {
+
         width: 82vw;
 
         padding:
@@ -1232,6 +1424,7 @@ section {
     }
 
     .slider-button {
+
         width: 40px;
         height: 40px;
 
@@ -1247,7 +1440,9 @@ section {
     }
 
     .letter {
-        padding: 45px 25px;
+
+        padding:
+            45px 25px;
     }
 
     .letter h3 {
@@ -1259,15 +1454,12 @@ section {
     }
 
     .signature {
-        font-size: 38px !important;
+        font-size:
+            38px !important;
     }
 
     .playlist-intro {
         font-size: 19px;
-    }
-
-    .spotify iframe {
-        height: 352px;
     }
 
     .final-message {
@@ -1278,24 +1470,14 @@ section {
         font-size: 40px;
     }
 
-}
+    .music-control {
 
+        width: 46px;
+        height: 46px;
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
+        right: 15px;
+        bottom: 15px;
     }
-
 }
 
 </style>
@@ -1304,6 +1486,33 @@ section {
 
 
 <body>
+
+
+<!-- =========================================================
+     BACKGROUND MUSIC
+========================================================= -->
+
+<audio id="backgroundMusic" loop>
+
+    <source
+        src="I Love You Too Much.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+<!-- MUSIC CONTROL -->
+
+<button
+    id="musicButton"
+    class="music-control"
+    onclick="toggleMusic()"
+    aria-label="Toggle music">
+
+    🎵
+
+</button>
+
 
 
 <!-- =========================================================
@@ -1569,8 +1778,9 @@ section {
 
 
         <p>
-            Somewhere between two countries and thousands
-            of kilometers, two hearts found each other.
+            Somewhere between two countries and
+            thousands of kilometers,
+            two hearts found each other.
         </p>
 
 
@@ -1578,7 +1788,8 @@ section {
 
 
         <p>
-            And somehow, you became my King
+            And somehow,
+            you became my King
             and I became your Queen.
         </p>
 
@@ -1598,7 +1809,7 @@ section {
 
 
 <!-- =========================================================
-     FAVORITE MEMORIES
+     MEMORIES
 ========================================================= -->
 
 <section class="memories">
@@ -1620,10 +1831,10 @@ section {
 
     <div class="slider">
 
-        <div class="slides" id="slides">
+        <div
+            class="slides"
+            id="slides">
 
-
-            <!-- PHOTO 1 -->
 
             <div class="slide">
 
@@ -1642,8 +1853,6 @@ section {
             </div>
 
 
-            <!-- PHOTO 2 -->
-
             <div class="slide">
 
                 <div class="single-photo">
@@ -1661,8 +1870,6 @@ section {
             </div>
 
 
-            <!-- PHOTO 3 -->
-
             <div class="slide">
 
                 <div class="single-photo">
@@ -1679,8 +1886,6 @@ section {
 
             </div>
 
-
-            <!-- PHOTO 4 -->
 
             <div class="slide">
 
@@ -1704,8 +1909,7 @@ section {
 
         <button
             class="slider-button prev"
-            onclick="previousSlide()"
-            aria-label="Previous memory">
+            onclick="previousSlide()">
 
             ‹
 
@@ -1714,8 +1918,7 @@ section {
 
         <button
             class="slider-button next"
-            onclick="nextSlide()"
-            aria-label="Next memory">
+            onclick="nextSlide()">
 
             ›
 
@@ -1769,9 +1972,10 @@ section {
 
 
         <p>
-            I will be the one to love you in infinity and beyond,
-            to give you a home that makes you feel safe and loved,
-            and to be your loving wife.
+            I will be the one to love you in infinity
+            and beyond, to give you a home that makes
+            you feel safe and loved, and to be your
+            loving wife.
         </p>
 
 
@@ -1837,7 +2041,7 @@ section {
 
 
 <!-- =========================================================
-     PLAYLIST
+     SPOTIFY
 ========================================================= -->
 
 <section class="playlist">
@@ -1945,7 +2149,9 @@ section {
 
 
     <div class="final-date">
+
         30 · 11 · 2025
+
     </div>
 
 </section>
@@ -1960,32 +2166,127 @@ section {
 
 
 /* =========================================================
+   MUSIC
+========================================================= */
+
+const backgroundMusic =
+    document.getElementById(
+        "backgroundMusic"
+    );
+
+const musicButton =
+    document.getElementById(
+        "musicButton"
+    );
+
+let musicPlaying = false;
+
+
+/* VOLUME */
+
+backgroundMusic.volume = 0.35;
+
+
+/* START MUSIC */
+
+function startMusic() {
+
+    backgroundMusic
+        .play()
+        .then(() => {
+
+            musicPlaying = true;
+
+            musicButton.innerHTML =
+                "🎵";
+
+        })
+        .catch(() => {
+
+            musicPlaying = false;
+
+        });
+
+}
+
+
+/* TOGGLE MUSIC */
+
+function toggleMusic() {
+
+    if (
+        backgroundMusic.paused
+    ) {
+
+        backgroundMusic
+            .play()
+            .then(() => {
+
+                musicPlaying = true;
+
+                musicButton.innerHTML =
+                    "🎵";
+
+            });
+
+    } else {
+
+        backgroundMusic.pause();
+
+        musicPlaying = false;
+
+        musicButton.innerHTML =
+            "🔇";
+
+    }
+
+}
+
+
+
+/* =========================================================
    SECRET CODE
 ========================================================= */
 
-const secretCode = "113025";
+const secretCode =
+    "113025";
 
 
 function unlock() {
 
     const input =
-        document.getElementById("code").value;
+        document.getElementById(
+            "code"
+        ).value;
 
     const error =
-        document.getElementById("error");
+        document.getElementById(
+            "error"
+        );
 
 
-    if (input === secretCode) {
+    if (
+        input === secretCode
+    ) {
 
         document
-            .getElementById("lockScreen")
-            .classList.add("unlocked");
+            .getElementById(
+                "lockScreen"
+            )
+            .classList.add(
+                "unlocked"
+            );
 
 
         error.innerHTML = "";
 
 
-        /* Celebration hearts */
+        /* START MUSIC */
+
+        startMusic();
+
+
+        /* HEART CELEBRATION */
 
         for (
             let i = 0;
@@ -2039,15 +2340,21 @@ let currentSlide = 0;
 
 
 const slides =
-    document.getElementById("slides");
+    document.getElementById(
+        "slides"
+    );
 
 
 const totalSlides =
-    document.querySelectorAll(".slide").length;
+    document.querySelectorAll(
+        ".slide"
+    ).length;
 
 
 const dots =
-    document.getElementById("dots");
+    document.getElementById(
+        "dots"
+    );
 
 
 /* CREATE DOTS */
@@ -2059,7 +2366,9 @@ for (
 ) {
 
     const dot =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
 
     dot.className = "dot";
@@ -2082,7 +2391,7 @@ for (
 }
 
 
-/* UPDATE */
+/* UPDATE SLIDER */
 
 function updateSlider() {
 
@@ -2173,7 +2482,8 @@ slides.addEventListener(
     function(event) {
 
         touchStartX =
-            event.touches[0].clientX;
+            event.touches[0]
+                .clientX;
 
     },
     { passive: true }
@@ -2185,11 +2495,13 @@ slides.addEventListener(
     function(event) {
 
         const touchEndX =
-            event.changedTouches[0].clientX;
+            event.changedTouches[0]
+                .clientX;
 
 
         const distance =
-            touchStartX - touchEndX;
+            touchStartX -
+            touchEndX;
 
 
         if (
@@ -2223,13 +2535,17 @@ slides.addEventListener(
 function createHeart() {
 
     const heart =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
 
-    heart.className = "heart";
+    heart.className =
+        "heart";
 
 
     const symbols = [
+
         "❤️",
         "💕",
         "💗",
@@ -2237,6 +2553,7 @@ function createHeart() {
         "💓",
         "💞",
         "💘"
+
     ];
 
 
@@ -2250,21 +2567,27 @@ function createHeart() {
 
 
     heart.style.left =
-        Math.random() * 100 + "vw";
+        Math.random() *
+        100 +
+        "vw";
 
 
     heart.style.fontSize =
         (
             12 +
-            Math.random() * 22
-        ) + "px";
+            Math.random() *
+            22
+        ) +
+        "px";
 
 
     heart.style.animationDuration =
         (
             5 +
-            Math.random() * 6
-        ) + "s";
+            Math.random() *
+            6
+        ) +
+        "s";
 
 
     document.body.appendChild(
@@ -2279,6 +2602,8 @@ function createHeart() {
 
 }
 
+
+/* CONTINUOUS HEARTS */
 
 setInterval(
     createHeart,
@@ -2305,5 +2630,6 @@ for (
 
 
 </body>
+
 </html>
 ```
