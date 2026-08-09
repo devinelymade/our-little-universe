@@ -3,2631 +3,980 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>For My King, Santi ❤️</title>
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<title>For My King, Santi ❤️</title>
-
-<link rel="preconnect"
-      href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap"
-      rel="stylesheet">
-
-
-<style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: #fff5f8;
-    color: #633b4b;
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    overflow-x: hidden;
-}
-
-button,
-input {
-    font-family: inherit;
-}
-
-
-/* =========================================================
-   LOCK SCREEN
-========================================================= */
-
-#lockScreen {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 9999;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background:
-        radial-gradient(
-            circle at 50% 40%,
-            #fffafd 0%,
-            #ffe3ed 42%,
-            #e99ab7 100%
-        );
-
-    transition:
-        opacity 1.2s ease,
-        visibility 1.2s ease;
-}
-
-#lockScreen.unlocked {
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
-}
-
-.lock-container {
-
-    text-align: center;
-
-    padding: 25px;
-
-    animation:
-        lockAppear 1.5s ease;
-}
-
-
-/* =========================================================
-   LOCK
-========================================================= */
-
-.lock {
-
-    width: 105px;
-    height: 120px;
-
-    margin: auto;
-
-    position: relative;
-}
-
-.lock-shackle {
-
-    position: absolute;
-
-    width: 58px;
-    height: 62px;
-
-    left: 23px;
-    top: 0;
-
-    border:
-        10px solid #963e64;
-
-    border-bottom: 0;
-
-    border-radius:
-        35px 35px 0 0;
-}
-
-.lock-body {
-
-    position: absolute;
-
-    width: 82px;
-    height: 68px;
-
-    left: 11px;
-    bottom: 0;
-
-    border-radius: 15px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ce6d92,
-            #963e64
-        );
-
-    box-shadow:
-        0 15px 35px
-        rgba(120,40,75,.3);
-}
-
-.keyhole {
-
-    position: absolute;
-
-    width: 15px;
-    height: 15px;
-
-    top: 17px;
-    left: 33px;
-
-    border-radius: 50%;
-
-    background: #ffeaf1;
-}
-
-.keyhole::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 8px;
-    height: 18px;
-
-    top: 10px;
-    left: 4px;
-
-    background: #ffeaf1;
-}
-
-
-/* =========================================================
-   LOCK TEXT
-========================================================= */
-
-.lock-title {
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    font-size: 65px;
-
-    color: #963e64;
-
-    margin-top: 20px;
-}
-
-.lock-subtitle {
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size: 11px;
-
-    letter-spacing: 4px;
-
-    text-transform: uppercase;
-
-    opacity: .65;
-
-    margin:
-        5px 0 30px;
-}
-
-
-/* =========================================================
-   CODE
-========================================================= */
-
-.code-input {
-
-    width: 230px;
-
-    padding: 15px;
-
-    border:
-        1px solid #d99ab1;
-
-    border-radius: 40px;
-
-    outline: none;
-
-    text-align: center;
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size: 20px;
-
-    letter-spacing: 7px;
-
-    color: #71394f;
-
-    background:
-        rgba(255,255,255,.85);
-}
-
-.code-input:focus {
-
-    box-shadow:
-        0 0 25px
-        rgba(190,80,120,.2);
-}
-
-
-.unlock-button {
-
-    display: block;
-
-    margin: 15px auto;
-
-    padding: 14px 32px;
-
-    border: none;
-
-    border-radius: 30px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #a74369,
-            #df789f
-        );
-
-    color: white;
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    cursor: pointer;
-
-    transition: .3s;
-}
-
-.unlock-button:hover {
-
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 12px 28px
-        rgba(150,50,90,.3);
-}
-
-#error {
-
-    min-height: 20px;
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size: 12px;
-
-    color: #a92f5a;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-
-    min-height: 100vh;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-
-    padding: 30px 20px;
-
-    position: relative;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #fffafd 0%,
-            #ffe4ed 40%,
-            #f1aec6 100%
-        );
-
-    overflow: hidden;
-}
-
-.hero-small {
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size: 11px;
-
-    letter-spacing: 5px;
-
-    text-transform: uppercase;
-
-    opacity: .65;
-}
-
-.hero h1 {
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    font-size:
-        clamp(70px, 13vw, 130px);
-
-    color: #963e64;
-
-    text-shadow:
-        0 8px 25px
-        rgba(150,62,100,.15);
-
-    animation:
-        floating 4s ease-in-out infinite;
-}
-
-.hero p {
-
-    font-size: 22px;
-
-    margin-top: -5px;
-}
-
-
-/* =========================================================
-   FLOWER CIRCLE
-========================================================= */
-
-.flower-circle {
-
-    width: 410px;
-    height: 410px;
-
-    max-width: 90vw;
-    max-height: 90vw;
-
-    position: relative;
-
-    margin:
-        5px 0 20px;
-}
-
-.flower {
-
-    position: absolute;
-
-    width: 65px;
-    height: 65px;
-
-    top: 50%;
-    left: 50%;
-
-    transform:
-        translate(-50%,-50%)
-        rotate(var(--angle))
-        translateY(-155px);
-
-    animation:
-        orbit 22s linear infinite;
-}
-
-.flower-inner {
-
-    width: 100%;
-    height: 100%;
-
-    animation:
-        reverseOrbit 22s linear infinite;
-}
-
-.petal {
-
-    position: absolute;
-
-    width: 28px;
-    height: 42px;
-
-    top: 2px;
-    left: 18px;
-
-    border-radius:
-        50% 50% 45% 45%;
-
-    background:
-        linear-gradient(
-            135deg,
-            #fff,
-            #f39bbb
-        );
-
-    transform-origin:
-        50% 100%;
-
-    box-shadow:
-        0 0 12px
-        rgba(255,160,190,.35);
-}
-
-.petal:nth-child(1) {
-    transform: rotate(0deg);
-}
-
-.petal:nth-child(2) {
-    transform: rotate(72deg);
-}
-
-.petal:nth-child(3) {
-    transform: rotate(144deg);
-}
-
-.petal:nth-child(4) {
-    transform: rotate(216deg);
-}
-
-.petal:nth-child(5) {
-    transform: rotate(288deg);
-}
-
-.flower-center {
-
-    position: absolute;
-
-    width: 20px;
-    height: 20px;
-
-    top: 23px;
-    left: 23px;
-
-    border-radius: 50%;
-
-    background: #f2bd63;
-
-    box-shadow:
-        0 0 18px #ffd98a;
-}
-
-.center-heart {
-
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    transform:
-        translate(-50%,-50%);
-
-    font-size: 68px;
-
-    filter:
-        drop-shadow(
-            0 8px 15px
-            rgba(180,50,90,.2)
-        );
-
-    animation:
-        heartbeat 1.8s infinite;
-}
-
-
-/* =========================================================
-   SECTIONS
-========================================================= */
-
-section {
-
-    padding: 100px 20px;
-}
-
-.section-label {
-
-    text-align: center;
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size: 11px;
-
-    letter-spacing: 4px;
-
-    text-transform: uppercase;
-
-    opacity: .6;
-}
-
-.section-title {
-
-    text-align: center;
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    font-size: 68px;
-
-    color: #963e64;
-
-    margin-bottom: 45px;
-}
-
-
-/* =========================================================
-   STORY
-========================================================= */
-
-.story {
-
-    max-width: 720px;
-
-    margin: auto;
-
-    text-align: center;
-
-    font-size: 22px;
-
-    line-height: 1.85;
-}
-
-.story-date {
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size: 12px;
-
-    letter-spacing: 3px;
-
-    color: #a8466c;
-
-    margin-bottom: 15px;
-}
-
-.story-heart {
-
-    font-size: 35px;
-
-    margin: 20px 0;
-}
-
-
-/* =========================================================
-   MEMORIES
-========================================================= */
-
-.memories {
-
-    background:
-        linear-gradient(
-            180deg,
-            #fff,
-            #fff5f8
-        );
-}
-
-.memory-intro {
-
-    max-width: 650px;
-
-    margin:
-        -25px auto 40px;
-
-    text-align: center;
-
-    font-size: 20px;
-}
-
-
-/* =========================================================
-   SLIDER
-========================================================= */
-
-.slider {
-
-    position: relative;
-
-    max-width: 900px;
-
-    margin: auto;
-
-    overflow: hidden;
-
-    border-radius: 25px;
-
-    padding: 20px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffe9f0,
-            #fff
-        );
-
-    box-shadow:
-        0 25px 70px
-        rgba(100,40,60,.15);
-}
-
-.slides {
-
-    display: flex;
-
-    transition:
-        transform .8s
-        cubic-bezier(.77,0,.18,1);
-}
-
-.slide {
-
-    min-width: 100%;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    padding:
-        10px 40px;
-}
-
-
-/* =========================================================
-   SINGLE PHOTO
-========================================================= */
-
-.single-photo {
-
-    width:
-        min(650px, 85vw);
-
-    padding:
-        15px 15px 25px;
-
-    background: white;
-
-    box-shadow:
-        0 20px 50px
-        rgba(100,40,60,.18);
-
-    border-radius: 4px;
-
-    transform: rotate(-1.5deg);
-
-    transition: .5s;
-}
-
-.slide:nth-child(even)
-.single-photo {
-
-    transform:
-        rotate(1.5deg);
-}
-
-.single-photo:hover {
-
-    transform:
-        rotate(0deg)
-        scale(1.015);
-}
-
-.single-photo img {
-
-    display: block;
-
-    width: 100%;
-
-    max-height: 650px;
-
-    object-fit: contain;
-
-    background: #f8e8ee;
-}
-
-.memory-caption {
-
-    text-align: center;
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    font-size: 30px;
-
-    color: #963e64;
-
-    padding-top: 15px;
-}
-
-
-/* =========================================================
-   SLIDER BUTTONS
-========================================================= */
-
-.slider-button {
-
-    position: absolute;
-
-    top: 50%;
-
-    transform:
-        translateY(-50%);
-
-    width: 48px;
-    height: 48px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255,255,255,.9);
-
-    color: #963e64;
-
-    font-size: 28px;
-
-    cursor: pointer;
-
-    z-index: 5;
-
-    box-shadow:
-        0 5px 20px
-        rgba(100,30,60,.12);
-
-    transition: .3s;
-}
-
-.slider-button:hover {
-
-    transform:
-        translateY(-50%)
-        scale(1.1);
-}
-
-.prev {
-    left: 20px;
-}
-
-.next {
-    right: 20px;
-}
-
-
-/* =========================================================
-   DOTS
-========================================================= */
-
-.dots {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 10px;
-
-    margin-top: 20px;
-}
-
-.dot {
-
-    width: 9px;
-    height: 9px;
-
-    border-radius: 50%;
-
-    background: #dba5b9;
-
-    cursor: pointer;
-
-    transition: .3s;
-}
-
-.dot.active {
-
-    background: #963e64;
-
-    transform: scale(1.5);
-}
-
-
-/* =========================================================
-   LOVE LETTER
-========================================================= */
-
-.letter-section {
-
-    background:
-        linear-gradient(
-            135deg,
-            #fff5f8,
-            #fbd8e5
-        );
-}
-
-.letter {
-
-    max-width: 760px;
-
-    margin: auto;
-
-    padding: 60px;
-
-    position: relative;
-
-    background:
-        rgba(255,255,255,.85);
-
-    box-shadow:
-        0 25px 65px
-        rgba(100,30,60,.12);
-
-    border-radius: 5px;
-}
-
-.letter::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 15px;
-
-    border:
-        1px solid
-        rgba(170,70,100,.2);
-
-    pointer-events: none;
-}
-
-.letter h3 {
-
-    text-align: center;
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    font-size: 62px;
-
-    color: #963e64;
-
-    margin-bottom: 30px;
-}
-
-.letter p {
-
-    font-size: 20px;
-
-    line-height: 1.9;
-
-    margin-bottom: 18px;
-}
-
-.letter-opening {
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    font-size:
-        34px !important;
-
-    color: #963e64;
-}
-
-.signature {
-
-    text-align: right;
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    font-size:
-        44px !important;
-
-    color: #963e64;
-
-    margin-top: 30px;
-}
-
-
-/* =========================================================
-   PLAYLIST
-========================================================= */
-
-.playlist {
-
-    text-align: center;
-
-    background:
-        radial-gradient(
-            circle,
-            #fff,
-            #ffe5ee
-        );
-}
-
-.playlist-intro {
-
-    max-width: 650px;
-
-    margin:
-        -20px auto 30px;
-
-    font-size: 21px;
-
-    line-height: 1.7;
-}
-
-.spotify {
-
-    max-width: 700px;
-
-    margin: auto;
-}
-
-.spotify iframe {
-
-    width: 100%;
-
-    height: 352px;
-
-    border: none;
-
-    border-radius: 14px;
-
-    box-shadow:
-        0 15px 40px
-        rgba(50,20,35,.15);
-}
-
-.playlist-note {
-
-    margin-top: 20px;
-
-    font-size: 16px;
-
-    opacity: .7;
-}
-
-
-/* =========================================================
-   FINAL SURPRISE
-========================================================= */
-
-.final {
-
-    min-height: 100vh;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-
-    padding:
-        80px 25px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #fff0f5,
-            #e9a2ba
-        );
-
-    position: relative;
-
-    overflow: hidden;
-}
-
-.final-heart {
-
-    font-size: 75px;
-
-    animation:
-        heartbeatFinal 1.5s infinite;
-}
-
-.final h2 {
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    font-size:
-        clamp(70px,11vw,125px);
-
-    color: #963e64;
-
-    margin: 10px 0;
-}
-
-.infinity {
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 75px;
-
-    color: #963e64;
-
-    margin:
-        5px 0 20px;
-
-    animation:
-        infinityGlow 3s
-        ease-in-out infinite;
-}
-
-.final-message {
-
-    max-width: 720px;
-
-    font-size: 24px;
-
-    line-height: 1.8;
-}
-
-.final-signature {
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    font-size: 46px;
-
-    color: #963e64;
-
-    margin-top: 30px;
-}
-
-.final-date {
-
-    margin-top: 30px;
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size: 10px;
-
-    letter-spacing: 4px;
-
-    opacity: .6;
-}
-
-
-/* =========================================================
-   MUSIC BUTTON
-========================================================= */
-
-.music-control {
-
-    position: fixed;
-
-    right: 20px;
-    bottom: 20px;
-
-    width: 52px;
-    height: 52px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background:
-        rgba(150,62,100,.9);
-
-    color: white;
-
-    font-size: 21px;
-
-    cursor: pointer;
-
-    z-index: 500;
-
-    box-shadow:
-        0 8px 25px
-        rgba(80,20,50,.25);
-
-    transition: .3s;
-}
-
-.music-control:hover {
-
-    transform: scale(1.1);
-}
-
-
-/* =========================================================
-   FLOATING HEARTS
-========================================================= */
-
-.heart {
-
-    position: fixed;
-
-    bottom: -40px;
-
-    pointer-events: none;
-
-    z-index: 100;
-
-    animation:
-        rise linear forwards;
-}
-
-
-/* =========================================================
-   ANIMATIONS
-========================================================= */
-
-@keyframes lockAppear {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(30px)
-            scale(.95);
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
-
-
-@keyframes orbit {
-
-    from {
-
-        transform:
-            translate(-50%,-50%)
-            rotate(var(--angle))
-            translateY(-155px);
-    }
-
-    to {
-
-        transform:
-            translate(-50%,-50%)
-            rotate(
-                calc(
-                    var(--angle) + 360deg
-                )
-            )
-            translateY(-155px);
-    }
-}
-
-
-@keyframes reverseOrbit {
-
-    from {
-
-        transform:
-            rotate(0);
-    }
-
-    to {
-
-        transform:
-            rotate(-360deg);
-    }
-}
-
-
-@keyframes heartbeat {
-
-    0%,100% {
-
-        transform:
-            translate(-50%,-50%)
-            scale(1);
-    }
-
-    50% {
-
-        transform:
-            translate(-50%,-50%)
-            scale(1.18);
-    }
-}
-
-
-@keyframes heartbeatFinal {
-
-    0%,100% {
-
-        transform:
-            scale(1);
-    }
-
-    50% {
-
-        transform:
-            scale(1.2);
-    }
-}
-
-
-@keyframes floating {
-
-    0%,100% {
-
-        transform:
-            translateY(0);
-    }
-
-    50% {
-
-        transform:
-            translateY(-10px);
-    }
-}
-
-
-@keyframes infinityGlow {
-
-    0%,100% {
-
-        opacity: .65;
-
-        transform:
-            scale(1);
-    }
-
-    50% {
-
-        opacity: 1;
-
-        transform:
-            scale(1.08);
-    }
-}
-
-
-@keyframes rise {
-
-    from {
-
-        transform:
-            translateY(0)
-            rotate(0deg);
-
-        opacity: 0;
-    }
-
-    10% {
-
-        opacity: .8;
-    }
-
-    to {
-
-        transform:
-            translateY(-110vh)
-            rotate(30deg);
-
-        opacity: 0;
-    }
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:600px) {
-
-    .lock-title {
-        font-size: 55px;
-    }
-
-    .hero h1 {
-        font-size: 72px;
-    }
-
-    .hero p {
-        font-size: 19px;
-    }
-
-    .flower-circle {
-
-        width: 330px;
-        height: 330px;
-    }
-
-    .flower {
-
-        transform:
-            translate(-50%,-50%)
-            rotate(var(--angle))
-            translateY(-120px);
-    }
-
-    .section-title {
-        font-size: 53px;
-    }
-
-    section {
-        padding: 80px 15px;
-    }
-
-    .story {
-        font-size: 19px;
-    }
-
-    .slider {
-        padding: 10px;
-    }
-
-    .slide {
-        padding:
-            20px 35px;
-    }
-
-    .single-photo {
-
-        width: 82vw;
-
-        padding:
-            10px 10px 18px;
-    }
-
-    .single-photo img {
-        max-height: 500px;
-    }
-
-    .memory-caption {
-        font-size: 24px;
-    }
-
-    .slider-button {
-
-        width: 40px;
-        height: 40px;
-
-        font-size: 23px;
-    }
-
-    .prev {
-        left: 8px;
-    }
-
-    .next {
-        right: 8px;
-    }
-
-    .letter {
-
-        padding:
-            45px 25px;
-    }
-
-    .letter h3 {
-        font-size: 50px;
-    }
-
-    .letter p {
-        font-size: 18px;
-    }
-
-    .signature {
-        font-size:
-            38px !important;
-    }
-
-    .playlist-intro {
-        font-size: 19px;
-    }
-
-    .final-message {
-        font-size: 20px;
-    }
-
-    .final-signature {
-        font-size: 40px;
-    }
-
-    .music-control {
-
-        width: 46px;
-        height: 46px;
-
-        right: 15px;
-        bottom: 15px;
-    }
-}
-
-</style>
-
+    <!-- Separate CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+    <!-- ==================================================
+         BACKGROUND MUSIC
+    ================================================== -->
 
-<!-- =========================================================
-     BACKGROUND MUSIC
-========================================================= -->
+    <audio id="backgroundMusic" loop preload="auto">
+        <source src="I Love You Too Much.mp3" type="audio/mpeg">
+    </audio>
 
-<audio id="backgroundMusic" loop>
+    <!-- Music Button -->
+    <button
+        id="musicButton"
+        class="music-control"
+        onclick="toggleMusic()"
+        aria-label="Music">
 
-    <source
-        src="I Love You Too Much.mp3"
-        type="audio/mpeg">
+        🎵
 
-</audio>
-
-
-<!-- MUSIC CONTROL -->
-
-<button
-    id="musicButton"
-    class="music-control"
-    onclick="toggleMusic()"
-    aria-label="Toggle music">
-
-    🎵
-
-</button>
+    </button>
 
 
+    <!-- ==================================================
+         SECRET LOCK SCREEN
+    ================================================== -->
 
-<!-- =========================================================
-     SECRET PADLOCK
-========================================================= -->
+    <div id="lockScreen">
 
-<div id="lockScreen">
+        <div class="lock-container">
 
-    <div class="lock-container">
+            <div class="lock">
 
-        <div class="lock">
+                <div class="lock-shackle"></div>
 
-            <div class="lock-shackle"></div>
-
-            <div class="lock-body">
-
-                <div class="keyhole"></div>
+                <div class="lock-body">
+                    <div class="keyhole"></div>
+                </div>
 
             </div>
 
+            <h1 class="lock-title">
+                For Santi
+            </h1>
+
+            <div class="lock-subtitle">
+                A little secret from your Queen
+            </div>
+
+            <input
+                id="code"
+                class="code-input"
+                type="password"
+                inputmode="numeric"
+                maxlength="6"
+                placeholder="••••••"
+                autocomplete="off"
+            >
+
+            <button
+                class="unlock-button"
+                onclick="unlock()">
+
+                🔐 Unlock My Heart
+
+            </button>
+
+            <div id="error"></div>
+
         </div>
 
+    </div>
 
-        <h1 class="lock-title">
-            For Santi
+
+    <!-- ==================================================
+         HERO
+    ================================================== -->
+
+    <header class="hero">
+
+        <div class="hero-small">
+            A little universe made for you
+        </div>
+
+        <h1>
+            My King, Santi
         </h1>
 
-
-        <div class="lock-subtitle">
-            A little secret from your Queen
-        </div>
-
-
-        <input
-            id="code"
-            class="code-input"
-            type="password"
-            inputmode="numeric"
-            maxlength="6"
-            placeholder="••••••"
-            aria-label="Secret code"
-        >
-
-
-        <button
-            class="unlock-button"
-            onclick="unlock()">
-
-            🔐 Unlock My Heart
-
-        </button>
-
-
-        <div id="error"></div>
-
-    </div>
-
-</div>
-
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<header class="hero">
-
-    <div class="hero-small">
-        A little universe made for you
-    </div>
-
-
-    <h1>
-        My King, Santi
-    </h1>
-
-
-    <p>
-        From your Queen, Devi ❤️
-    </p>
-
-
-    <div class="flower-circle">
-
-
-        <div class="flower" style="--angle:0deg">
-
-            <div class="flower-inner">
-
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-
-                <div class="flower-center"></div>
-
-            </div>
-
-        </div>
-
-
-        <div class="flower" style="--angle:45deg">
-
-            <div class="flower-inner">
-
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-
-                <div class="flower-center"></div>
-
-            </div>
-
-        </div>
-
-
-        <div class="flower" style="--angle:90deg">
-
-            <div class="flower-inner">
-
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-
-                <div class="flower-center"></div>
-
-            </div>
-
-        </div>
-
-
-        <div class="flower" style="--angle:135deg">
-
-            <div class="flower-inner">
-
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-
-                <div class="flower-center"></div>
-
-            </div>
-
-        </div>
-
-
-        <div class="flower" style="--angle:180deg">
-
-            <div class="flower-inner">
-
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-
-                <div class="flower-center"></div>
-
-            </div>
-
-        </div>
-
-
-        <div class="flower" style="--angle:225deg">
-
-            <div class="flower-inner">
-
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-
-                <div class="flower-center"></div>
-
-            </div>
-
-        </div>
-
-
-        <div class="flower" style="--angle:270deg">
-
-            <div class="flower-inner">
-
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-
-                <div class="flower-center"></div>
-
-            </div>
-
-        </div>
-
-
-        <div class="flower" style="--angle:315deg">
-
-            <div class="flower-inner">
-
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-
-                <div class="flower-center"></div>
-
-            </div>
-
-        </div>
-
-
-        <div class="center-heart">
-            ❤️
-        </div>
-
-    </div>
-
-</header>
-
-
-
-<!-- =========================================================
-     OUR STORY
-========================================================= -->
-
-<section>
-
-    <div class="section-label">
-        The beginning of us
-    </div>
-
-
-    <h2 class="section-title">
-        Our Story
-    </h2>
-
-
-    <div class="story">
-
-        <div class="story-date">
-            NOVEMBER 30 · 2025
-        </div>
-
-
         <p>
-            The day our little story began.
+            From your Queen, Devi ❤️
         </p>
 
 
-        <div class="story-heart">
-            ❤️
+        <!-- FLOWER CIRCLE -->
+
+        <div class="flower-circle">
+
+
+            <div class="flower" style="--angle: 0deg">
+                <div class="flower-inner">
+
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+
+                    <div class="flower-center"></div>
+
+                </div>
+            </div>
+
+
+            <div class="flower" style="--angle: 45deg">
+                <div class="flower-inner">
+
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+
+                    <div class="flower-center"></div>
+
+                </div>
+            </div>
+
+
+            <div class="flower" style="--angle: 90deg">
+                <div class="flower-inner">
+
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+
+                    <div class="flower-center"></div>
+
+                </div>
+            </div>
+
+
+            <div class="flower" style="--angle: 135deg">
+                <div class="flower-inner">
+
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+
+                    <div class="flower-center"></div>
+
+                </div>
+            </div>
+
+
+            <div class="flower" style="--angle: 180deg">
+                <div class="flower-inner">
+
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+
+                    <div class="flower-center"></div>
+
+                </div>
+            </div>
+
+
+            <div class="flower" style="--angle: 225deg">
+                <div class="flower-inner">
+
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+
+                    <div class="flower-center"></div>
+
+                </div>
+            </div>
+
+
+            <div class="flower" style="--angle: 270deg">
+                <div class="flower-inner">
+
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+
+                    <div class="flower-center"></div>
+
+                </div>
+            </div>
+
+
+            <div class="flower" style="--angle: 315deg">
+                <div class="flower-inner">
+
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+
+                    <div class="flower-center"></div>
+
+                </div>
+            </div>
+
+
+            <div class="center-heart">
+                ❤️
+            </div>
+
         </div>
 
+    </header>
 
-        <p>
-            Somewhere between two countries and
-            thousands of kilometers,
-            two hearts found each other.
+
+    <!-- ==================================================
+         OUR STORY
+    ================================================== -->
+
+    <section>
+
+        <div class="section-label">
+            The beginning of us
+        </div>
+
+        <h2 class="section-title">
+            Our Story
+        </h2>
+
+        <div class="story">
+
+            <div class="story-date">
+                NOVEMBER 30 · 2025
+            </div>
+
+            <p>
+                The day our little story began.
+            </p>
+
+            <div class="story-heart">
+                ❤️
+            </div>
+
+            <p>
+                Somewhere between two countries and
+                thousands of kilometers, two hearts
+                found each other.
+            </p>
+
+            <br>
+
+            <p>
+                And somehow, you became my King
+                and I became your Queen.
+            </p>
+
+            <br>
+
+            <p>
+                This is only the beginning of our story.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         MEMORIES
+    ================================================== -->
+
+    <section class="memories">
+
+        <div class="section-label">
+            Little pieces of us
+        </div>
+
+        <h2 class="section-title">
+            Our Favorite Memories
+        </h2>
+
+        <p class="memory-intro">
+            Four little moments I want to keep close
+            to my heart. ❤️
         </p>
 
 
-        <br>
+        <div class="slider">
+
+            <div class="slides" id="slides">
 
 
-        <p>
-            And somehow,
-            you became my King
-            and I became your Queen.
-        </p>
+                <!-- PHOTO 1 -->
+
+                <div class="slide">
+
+                    <div class="single-photo">
+
+                        <img
+                            src="photo1.jpg"
+                            alt="Our favorite memory 1"
+                            loading="lazy"
+                        >
+
+                        <div class="memory-caption">
+                            A little moment with you ❤️
+                        </div>
+
+                    </div>
+
+                </div>
 
 
-        <br>
+                <!-- PHOTO 2 -->
+
+                <div class="slide">
+
+                    <div class="single-photo">
+
+                        <img
+                            src="photo2.jpg"
+                            alt="Our favorite memory 2"
+                            loading="lazy"
+                        >
+
+                        <div class="memory-caption">
+                            One of my favorite memories 🥹
+                        </div>
+
+                    </div>
+
+                </div>
 
 
-        <p>
-            This is only the beginning
-            of our story.
-        </p>
+                <!-- PHOTO 3 -->
 
-    </div>
+                <div class="slide">
 
-</section>
+                    <div class="single-photo">
 
+                        <img
+                            src="photo3.jpg"
+                            alt="Our favorite memory 3"
+                            loading="lazy"
+                        >
 
+                        <div class="memory-caption">
+                            Just you and me ❤️
+                        </div>
 
-<!-- =========================================================
-     MEMORIES
-========================================================= -->
+                    </div>
 
-<section class="memories">
-
-    <div class="section-label">
-        Little pieces of us
-    </div>
-
-
-    <h2 class="section-title">
-        Our Favorite Memories
-    </h2>
+                </div>
 
 
-    <p class="memory-intro">
-        Every picture holds a little piece of us. ❤️
-    </p>
+                <!-- PHOTO 4 -->
+
+                <div class="slide">
+
+                    <div class="single-photo">
+
+                        <img
+                            src="photo4.jpg"
+                            alt="Our favorite memory 4"
+                            loading="lazy"
+                        >
+
+                        <div class="memory-caption">
+                            More memories to come ♾️
+                        </div>
+
+                    </div>
+
+                </div>
 
 
-    <div class="slider">
+            </div>
+
+
+            <button
+                class="slider-button prev"
+                onclick="previousSlide()"
+                aria-label="Previous photo">
+
+                ‹
+
+            </button>
+
+
+            <button
+                class="slider-button next"
+                onclick="nextSlide()"
+                aria-label="Next photo">
+
+                ›
+
+            </button>
+
+        </div>
+
 
         <div
-            class="slides"
-            id="slides">
+            class="dots"
+            id="dots">
+        </div>
+
+    </section>
 
 
-            <div class="slide">
+    <!-- ==================================================
+         LOVE LETTER
+    ================================================== -->
 
-                <div class="single-photo">
+    <section class="letter-section">
 
-                    <img
-                        src="memories/photo1.jpg"
-                        alt="Our favorite memory 1">
+        <div class="section-label">
+            From my heart to yours
+        </div>
 
-                    <div class="memory-caption">
-                        A little moment with you ❤️
-                    </div>
-
-                </div>
-
-            </div>
+        <h2 class="section-title">
+            A Letter For You
+        </h2>
 
 
-            <div class="slide">
+        <div class="letter">
 
-                <div class="single-photo">
-
-                    <img
-                        src="memories/photo2.jpg"
-                        alt="Our favorite memory 2">
-
-                    <div class="memory-caption">
-                        One of my favorite memories 🥹
-                    </div>
-
-                </div>
-
-            </div>
+            <h3>
+                To My King ❤️
+            </h3>
 
 
-            <div class="slide">
-
-                <div class="single-photo">
-
-                    <img
-                        src="memories/photo3.jpg"
-                        alt="Our favorite memory 3">
-
-                    <div class="memory-caption">
-                        Just you and me ❤️
-                    </div>
-
-                </div>
-
-            </div>
+            <p class="letter-opening">
+                My Santi,
+            </p>
 
 
-            <div class="slide">
+            <p>
+                I don't know if words will ever be enough
+                to explain how much you mean to me,
+                but I want to try.
+            </p>
 
-                <div class="single-photo">
 
-                    <img
-                        src="memories/photo4.jpg"
-                        alt="Our favorite memory 4">
+            <p>
+                I will be the one to love you in infinity
+                and beyond, to give you a home that makes
+                you feel safe and loved, and to be your
+                loving wife.
+            </p>
 
-                    <div class="memory-caption">
-                        More memories to come ♾️
-                    </div>
 
-                </div>
+            <p>
+                I want to be the person you can come home to,
+                the person you can laugh with, dream with,
+                and grow with.
+            </p>
 
-            </div>
 
+            <p>
+                Even when the distance feels big,
+                I hope you remember that my heart
+                has never been measured in kilometers.
+            </p>
+
+
+            <p>
+                You are my King, and I am so grateful
+                that I get to be your Queen.
+            </p>
+
+
+            <p>
+                I want to make more memories with you.
+                More silly moments.
+                More late-night conversations.
+                More adventures.
+                More birthdays.
+                More ordinary days that somehow
+                become our favorite memories.
+            </p>
+
+
+            <p>
+                And one day, I hope the distance between
+                Argentina and the Philippines is nothing
+                more than a chapter we look back on together.
+            </p>
+
+
+            <p>
+                Until then, I will keep choosing you.
+            </p>
+
+
+            <p>
+                I love you to infinity and beyond.
+                ♾️❤️
+            </p>
+
+
+            <p class="signature">
+                Forever your Queen,<br>
+                Devi ❤️
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         SPOTIFY
+    ================================================== -->
+
+    <section class="playlist">
+
+        <div class="section-label">
+            Songs that sound like us
+        </div>
+
+        <h2 class="section-title">
+            Our Playlist 🎵
+        </h2>
+
+        <p class="playlist-intro">
+            Press play and let these songs tell
+            a little piece of our story.
+        </p>
+
+
+        <div class="spotify">
+
+            <iframe
+                src="https://open.spotify.com/embed/playlist/7uC8cUciOSVzQQUgNgzA2G"
+                title="Our Spotify Playlist"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy">
+            </iframe>
 
         </div>
 
 
-        <button
-            class="slider-button prev"
-            onclick="previousSlide()">
+        <p class="playlist-note">
+            🎧 For my King, from your Queen.
+        </p>
 
-            ‹
-
-        </button>
+    </section>
 
 
-        <button
-            class="slider-button next"
-            onclick="nextSlide()">
+    <!-- ==================================================
+         FINAL SURPRISE
+    ================================================== -->
 
-            ›
+    <section class="final">
 
-        </button>
-
-    </div>
-
-
-    <div
-        class="dots"
-        id="dots">
-    </div>
-
-</section>
+        <div class="final-heart">
+            ❤️
+        </div>
 
 
-
-<!-- =========================================================
-     LOVE LETTER
-========================================================= -->
-
-<section class="letter-section">
-
-    <div class="section-label">
-        From my heart to yours
-    </div>
+        <h2>
+            I Choose You
+        </h2>
 
 
-    <h2 class="section-title">
-        A Letter For You
-    </h2>
+        <div class="infinity">
+            ∞
+        </div>
 
 
-    <div class="letter">
+        <p class="final-message">
 
-        <h3>
-            To My King ❤️
-        </h3>
+            Santi, I will love you
+            in infinity and beyond.
 
+            <br><br>
 
-        <p class="letter-opening">
-            My Santi,
+            I will love you through the distance,
+            through every difficult day,
+            through every beautiful moment,
+            and through every chapter
+            still waiting for us.
+
+            <br><br>
+
+            I want to give you a home where you feel
+            safe, loved, understood, and never alone.
+
+            <br><br>
+
+            And someday...
+
+            <br><br>
+
+            I want that home to be us.
+
         </p>
 
 
-        <p>
-            I don't know if words will ever be enough
-            to explain how much you mean to me,
-            but I want to try.
-        </p>
+        <div class="final-signature">
 
-
-        <p>
-            I will be the one to love you in infinity
-            and beyond, to give you a home that makes
-            you feel safe and loved, and to be your
-            loving wife.
-        </p>
-
-
-        <p>
-            I want to be the person you can come home to,
-            the person you can laugh with,
-            dream with, and grow with.
-        </p>
-
-
-        <p>
-            Even when the distance feels big,
-            I hope you remember that my heart
-            has never been measured in kilometers.
-        </p>
-
-
-        <p>
-            You are my King,
-            and I am so grateful that I get
-            to be your Queen.
-        </p>
-
-
-        <p>
-            I want to make more memories with you.
-            More silly moments.
-            More late-night conversations.
-            More adventures.
-            More birthdays.
-            More ordinary days that somehow
-            become our favorite memories.
-        </p>
-
-
-        <p>
-            And one day, I hope the distance between
-            Argentina and the Philippines is nothing more
-            than a chapter we look back on together.
-        </p>
-
-
-        <p>
-            Until then, I will keep choosing you.
-        </p>
-
-
-        <p>
-            I love you to infinity and beyond.
-            ♾️❤️
-        </p>
-
-
-        <p class="signature">
-            Forever your Queen,<br>
+            Your loving Queen,<br>
             Devi ❤️
-        </p>
 
-    </div>
+        </div>
 
-</section>
 
+        <div class="final-date">
+            30 · 11 · 2025
+        </div>
 
+    </section>
 
-<!-- =========================================================
-     SPOTIFY
-========================================================= -->
 
-<section class="playlist">
 
-    <div class="section-label">
-        Songs that sound like us
-    </div>
+    <!-- ==================================================
+         JAVASCRIPT
+    ================================================== -->
 
+    <script>
 
-    <h2 class="section-title">
-        Our Playlist 🎵
-    </h2>
 
+    /* ==================================================
+       PASSWORD
+    ================================================== */
 
-    <p class="playlist-intro">
-        Press play and let these songs tell
-        a little piece of our story.
-    </p>
+    const secretCode = "113025";
 
 
-    <div class="spotify">
+    function unlock() {
 
-        <iframe
-            src="https://open.spotify.com/embed/playlist/7uC8cUciOSVzQQUgNgzA2G"
-            allow="
-                autoplay;
-                clipboard-write;
-                encrypted-media;
-                fullscreen;
-                picture-in-picture
-            "
-            loading="lazy">
-        </iframe>
+        const input =
+            document.getElementById("code").value;
 
-    </div>
+        const error =
+            document.getElementById("error");
 
 
-    <p class="playlist-note">
-        🎧 For my King, from your Queen.
-    </p>
+        if (input === secretCode) {
 
-</section>
+            document
+                .getElementById("lockScreen")
+                .classList.add("unlocked");
 
+            error.innerHTML = "";
 
+            startMusic();
 
-<!-- =========================================================
-     FINAL SURPRISE
-========================================================= -->
+            /* Celebration hearts */
 
-<section class="final">
+            for (let i = 0; i < 30; i++) {
 
-    <div class="final-heart">
-        ❤️
-    </div>
+                setTimeout(
+                    createHeart,
+                    i * 80
+                );
 
+            }
 
-    <h2>
-        I Choose You
-    </h2>
+        } else {
 
+            error.innerHTML =
+                "That's not it, my King ❤️";
 
-    <div class="infinity">
-        ∞
-    </div>
+        }
 
+    }
 
-    <p class="final-message">
 
-        Santi, I will love you
-        in infinity and beyond.
+    /* Press Enter to unlock */
 
-        <br><br>
+    document
+        .getElementById("code")
+        .addEventListener(
+            "keydown",
+            function(event) {
 
-        I will love you through the distance,
-        through every difficult day,
-        through every beautiful moment,
-        and through every chapter
-        still waiting for us.
+                if (event.key === "Enter") {
+                    unlock();
+                }
 
-        <br><br>
+            }
+        );
 
-        I want to give you a home
-        where you feel safe,
-        loved,
-        understood,
-        and never alone.
 
-        <br><br>
 
-        And someday...
+    /* ==================================================
+       MUSIC
+    ================================================== */
 
-        <br><br>
+    const backgroundMusic =
+        document.getElementById("backgroundMusic");
 
-        I want that home to be us.
+    const musicButton =
+        document.getElementById("musicButton");
 
-    </p>
 
+    backgroundMusic.volume = 0.35;
 
-    <div class="final-signature">
 
-        Your loving Queen,<br>
-        Devi ❤️
-
-    </div>
-
-
-    <div class="final-date">
-
-        30 · 11 · 2025
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
-
-<script>
-
-
-/* =========================================================
-   MUSIC
-========================================================= */
-
-const backgroundMusic =
-    document.getElementById(
-        "backgroundMusic"
-    );
-
-const musicButton =
-    document.getElementById(
-        "musicButton"
-    );
-
-let musicPlaying = false;
-
-
-/* VOLUME */
-
-backgroundMusic.volume = 0.35;
-
-
-/* START MUSIC */
-
-function startMusic() {
-
-    backgroundMusic
-        .play()
-        .then(() => {
-
-            musicPlaying = true;
-
-            musicButton.innerHTML =
-                "🎵";
-
-        })
-        .catch(() => {
-
-            musicPlaying = false;
-
-        });
-
-}
-
-
-/* TOGGLE MUSIC */
-
-function toggleMusic() {
-
-    if (
-        backgroundMusic.paused
-    ) {
+    function startMusic() {
 
         backgroundMusic
             .play()
             .then(() => {
 
-                musicPlaying = true;
+                musicButton.innerHTML = "🎵";
 
-                musicButton.innerHTML =
-                    "🎵";
+            })
+            .catch(() => {
+
+                musicButton.innerHTML = "🔇";
 
             });
 
-    } else {
-
-        backgroundMusic.pause();
-
-        musicPlaying = false;
-
-        musicButton.innerHTML =
-            "🔇";
-
     }
 
-}
 
+    function toggleMusic() {
 
+        if (backgroundMusic.paused) {
 
-/* =========================================================
-   SECRET CODE
-========================================================= */
+            backgroundMusic
+                .play()
+                .then(() => {
 
-const secretCode =
-    "113025";
+                    musicButton.innerHTML = "🎵";
 
+                });
 
-function unlock() {
+        } else {
 
-    const input =
-        document.getElementById(
-            "code"
-        ).value;
+            backgroundMusic.pause();
 
-    const error =
-        document.getElementById(
-            "error"
-        );
-
-
-    if (
-        input === secretCode
-    ) {
-
-        document
-            .getElementById(
-                "lockScreen"
-            )
-            .classList.add(
-                "unlocked"
-            );
-
-
-        error.innerHTML = "";
-
-
-        /* START MUSIC */
-
-        startMusic();
-
-
-        /* HEART CELEBRATION */
-
-        for (
-            let i = 0;
-            i < 35;
-            i++
-        ) {
-
-            setTimeout(
-                createHeart,
-                i * 70
-            );
+            musicButton.innerHTML = "🔇";
 
         }
 
-    } else {
-
-        error.innerHTML =
-            "Try again, my King ❤️";
-
     }
 
-}
 
 
-/* ENTER KEY */
+    /* ==================================================
+       MEMORY SLIDER
+    ================================================== */
 
-document
-    .getElementById("code")
-    .addEventListener(
-        "keydown",
-        function(event) {
+    let currentSlide = 0;
 
-            if (
-                event.key === "Enter"
-            ) {
 
-                unlock();
+    const slides =
+        document.getElementById("slides");
+
+
+    const totalSlides =
+        document.querySelectorAll(".slide").length;
+
+
+    const dots =
+        document.getElementById("dots");
+
+
+    /* Create dots */
+
+    for (let i = 0; i < totalSlides; i++) {
+
+        const dot =
+            document.createElement("div");
+
+        dot.className = "dot";
+
+        dot.addEventListener(
+            "click",
+            function() {
+
+                currentSlide = i;
+
+                updateSlider();
 
             }
-
-        }
-    );
-
-
-
-/* =========================================================
-   MEMORY SLIDER
-========================================================= */
-
-let currentSlide = 0;
-
-
-const slides =
-    document.getElementById(
-        "slides"
-    );
-
-
-const totalSlides =
-    document.querySelectorAll(
-        ".slide"
-    ).length;
-
-
-const dots =
-    document.getElementById(
-        "dots"
-    );
-
-
-/* CREATE DOTS */
-
-for (
-    let i = 0;
-    i < totalSlides;
-    i++
-) {
-
-    const dot =
-        document.createElement(
-            "div"
         );
 
+        dots.appendChild(dot);
 
-    dot.className = "dot";
-
-
-    dot.addEventListener(
-        "click",
-        function() {
-
-            currentSlide = i;
-
-            updateSlider();
-
-        }
-    );
+    }
 
 
-    dots.appendChild(dot);
+    function updateSlider() {
 
-}
-
-
-/* UPDATE SLIDER */
-
-function updateSlider() {
-
-    slides.style.transform =
-        `translateX(-${currentSlide * 100}%)`;
+        slides.style.transform =
+            `translateX(-${currentSlide * 100}%)`;
 
 
-    document
-        .querySelectorAll(".dot")
-        .forEach(
-            (dot, index) => {
+        document
+            .querySelectorAll(".dot")
+            .forEach((dot, index) => {
 
                 dot.classList.toggle(
                     "active",
                     index === currentSlide
                 );
 
-            }
-        );
-
-}
-
-
-/* NEXT */
-
-function nextSlide() {
-
-    currentSlide++;
-
-
-    if (
-        currentSlide >= totalSlides
-    ) {
-
-        currentSlide = 0;
+            });
 
     }
 
 
-    updateSlider();
+    function nextSlide() {
 
-}
+        currentSlide++;
 
-
-/* PREVIOUS */
-
-function previousSlide() {
-
-    currentSlide--;
-
-
-    if (
-        currentSlide < 0
-    ) {
-
-        currentSlide =
-            totalSlides - 1;
-
-    }
-
-
-    updateSlider();
-
-}
-
-
-updateSlider();
-
-
-/* AUTO SLIDE */
-
-setInterval(
-    nextSlide,
-    5000
-);
-
-
-
-/* =========================================================
-   TOUCH SWIPE
-========================================================= */
-
-let touchStartX = 0;
-
-
-slides.addEventListener(
-    "touchstart",
-    function(event) {
-
-        touchStartX =
-            event.touches[0]
-                .clientX;
-
-    },
-    { passive: true }
-);
-
-
-slides.addEventListener(
-    "touchend",
-    function(event) {
-
-        const touchEndX =
-            event.changedTouches[0]
-                .clientX;
-
-
-        const distance =
-            touchStartX -
-            touchEndX;
-
-
-        if (
-            Math.abs(distance) > 50
-        ) {
-
-            if (
-                distance > 0
-            ) {
-
-                nextSlide();
-
-            } else {
-
-                previousSlide();
-
-            }
-
+        if (currentSlide >= totalSlides) {
+            currentSlide = 0;
         }
 
-    },
-    { passive: true }
-);
+        updateSlider();
+
+    }
+
+
+    function previousSlide() {
+
+        currentSlide--;
+
+        if (currentSlide < 0) {
+            currentSlide = totalSlides - 1;
+        }
+
+        updateSlider();
+
+    }
+
+
+    updateSlider();
+
+
+    /* Automatic sliding */
+
+    setInterval(
+        nextSlide,
+        5000
+    );
 
 
 
-/* =========================================================
-   FLOATING HEARTS
-========================================================= */
+    /* ==================================================
+       SWIPE ON MOBILE
+    ================================================== */
 
-function createHeart() {
-
-    const heart =
-        document.createElement(
-            "div"
-        );
+    let touchStartX = 0;
 
 
-    heart.className =
-        "heart";
+    slides.addEventListener(
+        "touchstart",
+        function(event) {
+
+            touchStartX =
+                event.touches[0].clientX;
+
+        },
+        { passive: true }
+    );
 
 
-    const symbols = [
+    slides.addEventListener(
+        "touchend",
+        function(event) {
 
-        "❤️",
-        "💕",
-        "💗",
-        "💖",
-        "💓",
-        "💞",
-        "💘"
+            const touchEndX =
+                event.changedTouches[0].clientX;
 
-    ];
+            const distance =
+                touchStartX - touchEndX;
 
 
-    heart.innerHTML =
-        symbols[
-            Math.floor(
-                Math.random() *
-                symbols.length
-            )
+            if (Math.abs(distance) > 50) {
+
+                if (distance > 0) {
+                    nextSlide();
+                } else {
+                    previousSlide();
+                }
+
+            }
+
+        },
+        { passive: true }
+    );
+
+
+
+    /* ==================================================
+       FLOATING HEARTS
+    ================================================== */
+
+    function createHeart() {
+
+        const heart =
+            document.createElement("div");
+
+
+        heart.className = "heart";
+
+
+        const symbols = [
+            "❤️",
+            "💕",
+            "💗",
+            "💖",
+            "💓",
+            "💞",
+            "💘"
         ];
 
 
-    heart.style.left =
-        Math.random() *
-        100 +
-        "vw";
+        heart.innerHTML =
+            symbols[
+                Math.floor(
+                    Math.random() * symbols.length
+                )
+            ];
 
 
-    heart.style.fontSize =
-        (
-            12 +
-            Math.random() *
-            22
-        ) +
-        "px";
+        heart.style.left =
+            Math.random() * 100 + "vw";
 
 
-    heart.style.animationDuration =
-        (
-            5 +
-            Math.random() *
-            6
-        ) +
-        "s";
+        heart.style.fontSize =
+            12 + Math.random() * 22 + "px";
 
 
-    document.body.appendChild(
-        heart
-    );
+        heart.style.animationDuration =
+            5 + Math.random() * 6 + "s";
 
 
-    setTimeout(
-        () => heart.remove(),
-        12000
-    );
-
-}
+        document.body.appendChild(heart);
 
 
-/* CONTINUOUS HEARTS */
+        setTimeout(
+            () => heart.remove(),
+            12000
+        );
 
-setInterval(
-    createHeart,
-    1000
-);
+    }
 
 
-/* INITIAL HEARTS */
+    /* Continuous floating hearts */
 
-for (
-    let i = 0;
-    i < 8;
-    i++
-) {
-
-    setTimeout(
+    setInterval(
         createHeart,
-        i * 500
+        1200
     );
 
-}
 
-</script>
-
+    </script>
 
 </body>
 
