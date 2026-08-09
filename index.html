@@ -1,0 +1,1579 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Little Universe ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Cormorant Garamond", serif;
+    background: #fff5f8;
+    color: #633b4b;
+    overflow-x: hidden;
+}
+
+/* =====================================================
+   LOCK SCREEN
+===================================================== */
+
+#lockScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at 50% 40%, #fff8fb 0%, #ffdce8 40%, #e9a1bb 100%);
+
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+#lockScreen.unlocked {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.lock-container {
+    text-align: center;
+    padding: 30px;
+    animation: lockAppear 1.5s ease;
+}
+
+.lock {
+    width: 95px;
+    height: 110px;
+    margin: 0 auto 25px;
+    position: relative;
+}
+
+.lock-body {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+
+    width: 75px;
+    height: 65px;
+
+    border-radius: 15px;
+
+    background: linear-gradient(135deg, #c76a8e, #9d4267);
+
+    box-shadow:
+        0 15px 30px rgba(120,40,75,.3);
+}
+
+.lock-shackle {
+    position: absolute;
+
+    width: 50px;
+    height: 55px;
+
+    border: 10px solid #9d4267;
+    border-bottom: 0;
+
+    border-radius: 30px 30px 0 0;
+
+    top: 0;
+    left: 22px;
+}
+
+.keyhole {
+    position: absolute;
+
+    width: 13px;
+    height: 22px;
+
+    background: #fff0f5;
+    border-radius: 50%;
+
+    left: 31px;
+    top: 18px;
+}
+
+.keyhole::after {
+    content: "";
+
+    position: absolute;
+
+    width: 8px;
+    height: 15px;
+
+    background: #fff0f5;
+
+    left: 2px;
+    top: 10px;
+}
+
+.lock-title {
+    font-family: "Great Vibes", cursive;
+    font-size: 60px;
+    color: #963e64;
+    margin-bottom: 5px;
+}
+
+.lock-subtitle {
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    opacity: .7;
+}
+
+.code-input {
+    width: 220px;
+    padding: 14px;
+
+    border: 1px solid #dda1b7;
+    border-radius: 30px;
+
+    text-align: center;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    letter-spacing: 7px;
+
+    outline: none;
+
+    background: rgba(255,255,255,.75);
+
+    color: #71394f;
+}
+
+.code-input:focus {
+    box-shadow: 0 0 20px rgba(190,80,120,.2);
+}
+
+.unlock-button {
+    display: block;
+
+    margin: 15px auto;
+
+    padding: 13px 35px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: linear-gradient(135deg, #a74369, #df779e);
+
+    color: white;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.unlock-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(150,50,90,.25);
+}
+
+.error {
+    height: 20px;
+    color: #b22e5c;
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    background:
+        radial-gradient(circle at center,
+        #fffafd 0%,
+        #ffe5ed 40%,
+        #f5b3c9 100%);
+}
+
+.small-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+
+    letter-spacing: 5px;
+    text-transform: uppercase;
+
+    opacity: .7;
+}
+
+.hero h1 {
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(65px, 12vw, 120px);
+
+    color: #963e64;
+
+    animation: floating 4s ease-in-out infinite;
+}
+
+.hero p {
+    font-size: 22px;
+    margin-top: -5px;
+}
+
+/* =====================================================
+   FLOWER CIRCLE
+===================================================== */
+
+.flower-circle {
+    width: 400px;
+    height: 400px;
+
+    max-width: 90vw;
+    max-height: 90vw;
+
+    position: relative;
+
+    margin: 20px 0;
+}
+
+.flower {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 65px;
+    height: 65px;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(var(--angle))
+        translateY(-155px);
+
+    animation:
+        orbit 20s linear infinite;
+}
+
+.flower-inner {
+    width: 100%;
+    height: 100%;
+
+    animation:
+        reverseSpin 20s linear infinite;
+}
+
+.petal {
+    position: absolute;
+
+    width: 28px;
+    height: 42px;
+
+    top: 2px;
+    left: 18px;
+
+    border-radius: 50% 50% 45% 45%;
+
+    background:
+        linear-gradient(135deg,#fff,#f69fbd);
+
+    transform-origin: 50% 100%;
+}
+
+.petal:nth-child(1) { transform: rotate(0); }
+.petal:nth-child(2) { transform: rotate(72deg); }
+.petal:nth-child(3) { transform: rotate(144deg); }
+.petal:nth-child(4) { transform: rotate(216deg); }
+.petal:nth-child(5) { transform: rotate(288deg); }
+
+.flower-center {
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    top: 23px;
+    left: 23px;
+
+    background: #f2bd63;
+
+    box-shadow: 0 0 15px #ffd98a;
+}
+
+.center-heart {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 65px;
+
+    animation: heartbeat 1.8s infinite;
+}
+
+@keyframes orbit {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(var(--angle))
+            translateY(-155px);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(calc(var(--angle) + 360deg))
+            translateY(-155px);
+    }
+
+}
+
+@keyframes reverseSpin {
+
+    from { transform: rotate(0); }
+    to { transform: rotate(-360deg); }
+
+}
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%,-50%) scale(1.18);
+    }
+
+}
+
+@keyframes floating {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+/* =====================================================
+   GENERAL SECTIONS
+===================================================== */
+
+section.content {
+    padding: 100px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section-label {
+    text-align: center;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    opacity: .6;
+}
+
+.section-title {
+    text-align: center;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 65px;
+
+    color: #963e64;
+
+    margin-bottom: 45px;
+}
+
+/* =====================================================
+   OUR STORY
+===================================================== */
+
+.story {
+    text-align: center;
+    font-size: 22px;
+
+    line-height: 1.8;
+
+    max-width: 700px;
+    margin: auto;
+}
+
+.date {
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: #b04d72;
+
+    margin-bottom: 10px;
+}
+
+/* =====================================================
+   MEMORIES SLIDER
+===================================================== */
+
+.memory-section {
+    background: #fff;
+}
+
+.slider {
+    position: relative;
+
+    max-width: 850px;
+
+    margin: auto;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 60px rgba(100,40,60,.15);
+}
+
+.slides {
+    display: flex;
+
+    transition:
+        transform .8s cubic-bezier(.77,0,.18,1);
+}
+
+.slide {
+    min-width: 100%;
+
+    position: relative;
+}
+
+.slide img {
+    display: block;
+
+    width: 100%;
+
+    height: 520px;
+
+    object-fit: cover;
+
+    background: #f7dce6;
+}
+
+.caption {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    padding: 35px 25px 25px;
+
+    color: white;
+
+    background:
+        linear-gradient(transparent, rgba(40,10,25,.8));
+}
+
+.caption h3 {
+    font-family: "Great Vibes", cursive;
+    font-size: 38px;
+}
+
+.caption p {
+    font-size: 18px;
+}
+
+.slider-button {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.8);
+
+    color: #963e64;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    z-index: 5;
+}
+
+.prev {
+    left: 15px;
+}
+
+.next {
+    right: 15px;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 20px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #dca4b8;
+
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #963e64;
+    transform: scale(1.4);
+}
+
+/* =====================================================
+   LOVE LETTER
+===================================================== */
+
+.letter-section {
+    background:
+        linear-gradient(135deg,#fff5f8,#fbd8e5);
+}
+
+.letter {
+    max-width: 750px;
+
+    margin: auto;
+
+    padding: 55px;
+
+    background: rgba(255,255,255,.8);
+
+    border: 1px solid rgba(180,80,110,.15);
+
+    box-shadow:
+        0 20px 50px rgba(100,30,60,.1);
+
+    position: relative;
+}
+
+.letter::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 15px;
+
+    border: 1px solid rgba(170,70,100,.2);
+
+    pointer-events: none;
+}
+
+.letter h2 {
+    text-align: center;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 60px;
+
+    color: #963e64;
+
+    margin-bottom: 30px;
+}
+
+.letter p {
+    font-size: 20px;
+
+    line-height: 1.8;
+
+    margin-bottom: 18px;
+}
+
+.signature {
+    font-family: "Great Vibes", cursive;
+
+    font-size: 40px !important;
+
+    color: #963e64;
+
+    text-align: right;
+}
+
+/* =====================================================
+   PLAYLIST
+===================================================== */
+
+.playlist {
+    text-align: center;
+
+    background:
+        radial-gradient(circle at center,#fff,#ffe7ef);
+}
+
+.playlist-text {
+    font-size: 21px;
+
+    margin-bottom: 30px;
+}
+
+.spotify-box {
+    max-width: 700px;
+
+    margin: auto;
+}
+
+.spotify-box iframe {
+    width: 100%;
+
+    height: 352px;
+
+    border-radius: 12px;
+
+    border: none;
+}
+
+/* =====================================================
+   FINAL SURPRISE
+===================================================== */
+
+.final {
+    min-height: 90vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px;
+
+    background:
+        radial-gradient(circle,#ffeef4,#e9a2ba);
+}
+
+.final-heart {
+    font-size: 70px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+.final h2 {
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(60px,10vw,100px);
+
+    color: #963e64;
+}
+
+.final p {
+    max-width: 650px;
+
+    font-size: 22px;
+
+    line-height: 1.7;
+}
+
+.final-date {
+    margin-top: 25px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+}
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+.heart {
+    position: fixed;
+
+    bottom: -30px;
+
+    pointer-events: none;
+
+    z-index: 50;
+
+    animation: rise linear forwards;
+
+    opacity: .7;
+}
+
+@keyframes rise {
+
+    from {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: .7;
+    }
+
+    to {
+        transform: translateY(-110vh) rotate(30deg);
+        opacity: 0;
+    }
+
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px) {
+
+    .hero h1 {
+        font-size: 70px;
+    }
+
+    .flower-circle {
+        width: 330px;
+        height: 330px;
+    }
+
+    .flower {
+        transform:
+            translate(-50%, -50%)
+            rotate(var(--angle))
+            translateY(-120px);
+    }
+
+    @keyframes orbit {
+
+        from {
+            transform:
+                translate(-50%, -50%)
+                rotate(var(--angle))
+                translateY(-120px);
+        }
+
+        to {
+            transform:
+                translate(-50%, -50%)
+                rotate(calc(var(--angle) + 360deg))
+                translateY(-120px);
+        }
+
+    }
+
+    .letter {
+        padding: 40px 25px;
+    }
+
+    .letter h2 {
+        font-size: 48px;
+    }
+
+    .letter p {
+        font-size: 18px;
+    }
+
+    .slide img {
+        height: 400px;
+    }
+
+    .section-title {
+        font-size: 52px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     SECRET LOCK
+===================================================== -->
+
+<div id="lockScreen">
+
+    <div class="lock-container">
+
+        <div class="lock">
+
+            <div class="lock-shackle"></div>
+
+            <div class="lock-body">
+                <div class="keyhole"></div>
+            </div>
+
+        </div>
+
+        <h1 class="lock-title">
+            Our Little Secret
+        </h1>
+
+        <div class="lock-subtitle">
+            Only my King can enter
+        </div>
+
+        <input
+            type="password"
+            id="code"
+            class="code-input"
+            maxlength="6"
+            placeholder="••••••"
+        >
+
+        <button
+            class="unlock-button"
+            onclick="unlock()">
+
+            🔐 Unlock My Heart
+
+        </button>
+
+        <div id="error" class="error"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<header class="hero">
+
+    <div class="small-title">
+        A little piece of my heart
+    </div>
+
+    <h1>
+        For My King
+    </h1>
+
+    <p>
+        A little world made just for us ❤️
+    </p>
+
+    <div class="flower-circle">
+
+        <div class="flower" style="--angle:0deg">
+            <div class="flower-inner">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="flower-center"></div>
+            </div>
+        </div>
+
+        <div class="flower" style="--angle:45deg">
+            <div class="flower-inner">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="flower-center"></div>
+            </div>
+        </div>
+
+        <div class="flower" style="--angle:90deg">
+            <div class="flower-inner">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="flower-center"></div>
+            </div>
+        </div>
+
+        <div class="flower" style="--angle:135deg">
+            <div class="flower-inner">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="flower-center"></div>
+            </div>
+        </div>
+
+        <div class="flower" style="--angle:180deg">
+            <div class="flower-inner">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="flower-center"></div>
+            </div>
+        </div>
+
+        <div class="flower" style="--angle:225deg">
+            <div class="flower-inner">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="flower-center"></div>
+            </div>
+        </div>
+
+        <div class="flower" style="--angle:270deg">
+            <div class="flower-inner">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="flower-center"></div>
+            </div>
+        </div>
+
+        <div class="flower" style="--angle:315deg">
+            <div class="flower-inner">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="flower-center"></div>
+            </div>
+        </div>
+
+        <div class="center-heart">
+            ❤️
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     OUR STORY
+===================================================== -->
+
+<section class="content">
+
+    <div class="section-label">
+        Where our story began
+    </div>
+
+    <h2 class="section-title">
+        Our Story
+    </h2>
+
+    <div class="story">
+
+        <div class="date">
+            NOVEMBER 30, 2025
+        </div>
+
+        <p>
+            The day our little story began.
+        </p>
+
+        <br>
+
+        <p>
+            Two people, two countries, thousands of kilometers
+            between us — and somehow, we found each other.
+        </p>
+
+        <br>
+
+        <p>
+            Since then, you've become one of the most beautiful
+            parts of my life.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FAVORITE MEMORIES
+===================================================== -->
+
+<section class="content memory-section">
+
+    <div class="section-label">
+        Little pieces of us
+    </div>
+
+    <h2 class="section-title">
+        Favorite Moments
+    </h2>
+
+    <div class="slider">
+
+        <div class="slides" id="slides">
+
+            <!-- CHANGE THESE IMAGE LINKS -->
+
+            <div class="slide">
+
+                <img
+                    src="https://placehold.co/1000x650/ffdce8/963e64?text=Our+First+Memory"
+                    alt="Our first memory">
+
+                <div class="caption">
+
+                    <h3>
+                        Our Beginning
+                    </h3>
+
+                    <p>
+                        The moment our story started.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="slide">
+
+                <img
+                    src="https://placehold.co/1000x650/f8c9d9/963e64?text=Favorite+Moment"
+                    alt="Favorite moment">
+
+                <div class="caption">
+
+                    <h3>
+                        My Favorite Smile
+                    </h3>
+
+                    <p>
+                        One of those moments I wish I could keep forever.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="slide">
+
+                <img
+                    src="https://placehold.co/1000x650/f5b6cc/963e64?text=Our+Memory"
+                    alt="Our memory">
+
+                <div class="caption">
+
+                    <h3>
+                        Just Us
+                    </h3>
+
+                    <p>
+                        Distance can't take these memories away.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="slide">
+
+                <img
+                    src="https://placehold.co/1000x650/efacc5/963e64?text=Forever+Memory"
+                    alt="Forever memory">
+
+                <div class="caption">
+
+                    <h3>
+                        One More Memory
+                    </h3>
+
+                    <p>
+                        And hopefully, many more to come.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="slider-button prev"
+            onclick="previousSlide()">
+
+            ‹
+
+        </button>
+
+
+        <button
+            class="slider-button next"
+            onclick="nextSlide()">
+
+            ›
+
+        </button>
+
+    </div>
+
+
+    <div class="dots" id="dots"></div>
+
+</section>
+
+
+<!-- =====================================================
+     LOVE LETTER
+===================================================== -->
+
+<section class="content letter-section">
+
+    <div class="section-label">
+        From my heart
+    </div>
+
+    <h2 class="section-title">
+        My Love Letter
+    </h2>
+
+    <div class="letter">
+
+        <h2>
+            To My King ❤️
+        </h2>
+
+        <p>
+            My Love,
+        </p>
+
+        <p>
+            Sometimes I still can't believe that in this huge world,
+            somehow our paths found each other.
+        </p>
+
+        <p>
+            Since November 30, 2025, you have become such a beautiful
+            part of my life.
+        </p>
+
+        <p>
+            You are thousands of kilometers away from me, but somehow
+            you have managed to become one of the closest people to my heart.
+        </p>
+
+        <p>
+            I love all the little things that make you who you are.
+            Your love for dinosaurs, your cat Snowy, games, cooking,
+            and all the little things that make you smile.
+        </p>
+
+        <p>
+            I love being your Queen, and I love calling you my King.
+        </p>
+
+        <p>
+            I don't know exactly what every chapter of our story will
+            look like, but I know that I want to keep writing it with you.
+        </p>
+
+        <p>
+            I want more conversations, more laughter, more memories,
+            more adventures, and someday, fewer kilometers between us.
+        </p>
+
+        <p>
+            Until that day comes, I hope you always remember that
+            there is someone here in the Philippines who loves you
+            and is cheering for you from afar.
+        </p>
+
+        <p>
+            Thank you for being you.
+        </p>
+
+        <p>
+            I love you, my King.
+        </p>
+
+        <p class="signature">
+            Forever your Queen,<br>
+            Devine ❤️
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PLAYLIST
+===================================================== -->
+
+<section class="content playlist">
+
+    <div class="section-label">
+        Songs that remind me of us
+    </div>
+
+    <h2 class="section-title">
+        Our Playlist 🎵
+    </h2>
+
+    <p class="playlist-text">
+        Put on your headphones and listen to the songs
+        that feel like our little love story.
+    </p>
+
+
+    <!--
+        REPLACE THE URL BELOW WITH YOUR SPOTIFY PLAYLIST.
+
+        Example:
+
+        https://open.spotify.com/playlist/XXXXXXXXXXXX
+
+        You can get the embed link from Spotify:
+        Share → Embed playlist
+    -->
+
+    <div class="spotify-box">
+
+        <iframe
+            src="https://open.spotify.com/embed/playlist/REPLACE_WITH_YOUR_PLAYLIST_ID"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+        </iframe>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL SURPRISE
+===================================================== -->
+
+<section class="final">
+
+    <div class="final-heart">
+        ❤️
+    </div>
+
+    <h2>
+        I Choose You
+    </h2>
+
+    <p>
+        In every distance.
+        In every timezone.
+        In every conversation.
+        In every chapter.
+
+        <br><br>
+
+        If I had to choose again,
+        I would still choose you.
+    </p>
+
+    <div class="final-date">
+        30 · 11 · 2025
+    </div>
+
+</section>
+
+
+<script>
+
+/* =====================================================
+   PASSWORD
+===================================================== */
+
+const secretCode = "113025";
+
+function unlock() {
+
+    const input =
+        document.getElementById("code").value;
+
+    const error =
+        document.getElementById("error");
+
+    if(input === secretCode) {
+
+        document
+            .getElementById("lockScreen")
+            .classList.add("unlocked");
+
+        error.innerHTML = "";
+
+        // Celebrate with hearts
+        for(let i = 0; i < 25; i++) {
+
+            setTimeout(
+                createHeart,
+                i * 100
+            );
+
+        }
+
+    } else {
+
+        error.innerHTML =
+            "That's not the secret, my King ❤️";
+
+    }
+
+}
+
+
+/* Enter key unlock */
+
+document
+    .getElementById("code")
+    .addEventListener("keydown", function(event) {
+
+        if(event.key === "Enter") {
+            unlock();
+        }
+
+    });
+
+
+/* =====================================================
+   MEMORY SLIDER
+===================================================== */
+
+let currentSlide = 0;
+
+const slides =
+    document.getElementById("slides");
+
+const totalSlides =
+    document.querySelectorAll(".slide").length;
+
+const dotsContainer =
+    document.getElementById("dots");
+
+
+/* Create dots */
+
+for(let i = 0; i < totalSlides; i++) {
+
+    const dot =
+        document.createElement("div");
+
+    dot.className = "dot";
+
+    dot.onclick = function() {
+
+        currentSlide = i;
+
+        updateSlider();
+
+    };
+
+    dotsContainer.appendChild(dot);
+
+}
+
+
+function updateSlider() {
+
+    slides.style.transform =
+        `translateX(-${currentSlide * 100}%)`;
+
+    document
+        .querySelectorAll(".dot")
+        .forEach((dot,index) => {
+
+            dot.classList.toggle(
+                "active",
+                index === currentSlide
+            );
+
+        });
+
+}
+
+
+function nextSlide() {
+
+    currentSlide++;
+
+    if(currentSlide >= totalSlides) {
+        currentSlide = 0;
+    }
+
+    updateSlider();
+
+}
+
+
+function previousSlide() {
+
+    currentSlide--;
+
+    if(currentSlide < 0) {
+        currentSlide = totalSlides - 1;
+    }
+
+    updateSlider();
+
+}
+
+
+updateSlider();
+
+
+/* Automatic memory slideshow */
+
+setInterval(nextSlide, 5000);
+
+
+/* =====================================================
+   TOUCH SWIPE
+===================================================== */
+
+let touchStartX = 0;
+
+slides.addEventListener(
+    "touchstart",
+    function(event) {
+
+        touchStartX =
+            event.touches[0].clientX;
+
+    }
+);
+
+
+slides.addEventListener(
+    "touchend",
+    function(event) {
+
+        const touchEndX =
+            event.changedTouches[0].clientX;
+
+        const difference =
+            touchStartX - touchEndX;
+
+        if(Math.abs(difference) > 50) {
+
+            if(difference > 0) {
+                nextSlide();
+            } else {
+                previousSlide();
+            }
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+function createHeart() {
+
+    const heart =
+        document.createElement("div");
+
+    heart.className = "heart";
+
+    const hearts =
+        ["❤️","💕","💗","💖","💓","💞"];
+
+    heart.innerHTML =
+        hearts[
+            Math.floor(
+                Math.random() * hearts.length
+            )
+        ];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (12 + Math.random() * 22) + "px";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 6) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(
+        () => heart.remove(),
+        12000
+    );
+
+}
+
+
+setInterval(createHeart, 1000);
+
+</script>
+
+</body>
+</html>
+```
